@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<label for="theme-toggle" class="toggle">
+  <Icon name="moon" width="16" height="16" />
+  <Icon name="sun" width="16" height="16" />
+</label>
+<input name="theme-toggle" id="theme-toggle" type="checkbox" class="switch" />
+
+<style>
+  .toggle {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+    min-width: max-content;
+    padding-block: 2px;
+    padding-inline: 4px;
+    border: 3px solid var(--orange);
+    position: relative;
+    cursor: pointer;
+    border-radius: 1rem;
+
+    &::after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      border-radius: 100%;
+      background: var(--orange);
+      position: absolute;
+      left: var(--left);
+    }
+  }
+
+  .toggle > * {
+    color: var(--orange);
+  }
+
+  .switch {
+    display: none;
+  }
+</style>
+
+<script>
+  /** Represent the toggle theme class with a variable */
+  const DARK_THEME_CLASS = "dark";
+
+  /** Represent the local storage key by a variable */
+  const COLOUR_MODE = "COLOUR_MODE";
+
+  /** Represent the local storage values by variables */
+  const LIGHT_THEME = "LIGHT";
+  const DARK_THEME = "DARK";
+
+  /** Grab the document root element. In this case <html>  */
+  const rootEl = document.documentElement;
+
+  /** Grab the toggle */
+  const switchBtn = document.querySelector(
+    "#theme-toggle"
+  ) as HTMLInputElement | null;
+
+  const toggle = document.querySelector(".toggle") as HTMLLabelElement | null;
+  const moonIcon = toggle.querySelector(
+    "[astro-icon='moon'"
+  ) as HTMLElement | null;
+  const sunIcon = toggle.querySelector(
+    "[astro-icon='sun'"
+  ) as HTMLElement | null;
+  if (switchBtn) {
+    switchBtn.addEventListener("change", () => {
+      /** toggle the "dark" class on the root element */
+      rootEl.classList.toggle(DARK_THEME_CLASS);
+
+      /**Get the current theme mode, i.e., light or dark */
+      const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
+        ? DARK_THEME
+        : LIGHT_THEME;
+
+      if (toggle) {
+        if (colourMode === "DARK") {
+          toggle.style.setProperty("--left", "24px");
+          sunIcon.style.visibility = "hidden";
+          moonIcon.style.visibility = "visible";
+        } else {
+          toggle.style.setProperty("--left", "2px");
+          sunIcon.style.visibility = "visible";
+          moonIcon.style.visibility = "hidden";
+        }
+      }
+
+      /** Save the current theme to local storage   */
+      window.localStorage.setItem(COLOUR_MODE, colourMode);
+    });
+  }
+</script>

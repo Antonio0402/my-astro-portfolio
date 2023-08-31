@@ -1,0 +1,299 @@
+---
+import Footer from "@/components/Footer.astro";
+import NavBar from "@/components/NavBar.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://stijndv.com" />
+    <link rel="stylesheet" href="https://stijndv.com/fonts/Eudoxus-Sans.css" />
+    <script is:inline>
+      /** Represent the toggle theme class with a variable */
+      const DARK_THEME_CLASS = "dark";
+
+      /** Represent the local storage key by a variable */
+      const COLOUR_MODE = "COLOUR_MODE";
+
+      /** Represent the local storage values by variables */
+      const LIGHT_THEME = "LIGHT";
+      const DARK_THEME = "DARK";
+
+      /** Grab the document root element. In this case <html>  */
+      const rootEl = document.documentElement;
+
+      const getInitialColourMode = () => {
+        /** Get colour mode from local storage **/
+        const previouslySavedColourMode =
+          window.localStorage.getItem(COLOUR_MODE);
+        if (previouslySavedColourMode) {
+          return previouslySavedColourMode;
+        }
+
+        /** Does the user prefer dark mode, e.g., through an operating system or user agent setting? */
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return DARK_THEME;
+        }
+        /** Default to the light theme */
+        return LIGHT_THEME;
+      };
+
+      /**Get initial colour mode */
+      const initialColourMode = getInitialColourMode();
+      const setInitialColourMode = (mode) => {
+        if (mode === LIGHT_THEME) {
+          rootEl.classList.remove(DARK_THEME_CLASS);
+        } else {
+          rootEl.classList.add(DARK_THEME_CLASS);
+        }
+      };
+
+      /** Set the initial colour mode as soon as the script is executed */
+      setInitialColourMode(initialColourMode);
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init(import.meta.env.EMAILJS_PUBLIC_KEY);
+      })();
+    </script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <NavBar />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Gumela";
+    src: url("/fonts/Gumela-Regular.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --light: #e4e4e4;
+    --dark: #1c1c1c;
+    --yellow: #f5c32c;
+    --orange: #fca61f;
+    --black: #242d49;
+    --gray: #788097;
+    --light-gray: #bfbfbf;
+    --blueCard: #ddf8fe;
+    --purple: rgb(238 210 255);
+    --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+    --orangeCard: rgba(252, 166, 31, 0.45);
+    --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+    --icon: var(--light);
+    --ff-primary: Gumela, serif;
+    --ff-secondary: "Eudoxus Sans", sans-serif;
+  }
+  html.dark {
+    --clr-background: black;
+    --clr-foreground: white;
+    --clr-text: var(--light-gray);
+    --clr-circle: var(--orange);
+    --clr-icon-path: var(--dark);
+  }
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  /* Allow percentage-based heights in the application */
+  html,
+  body {
+    height: 100%;
+  }
+
+  /* Set core root defaults */
+
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    font-family: var(--ff-secondary);
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--clr-foreground, var(--black));
+    background-color: var(--clr-background, white);
+    padding-block: 0.5rem;
+    padding-inline: 3.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (max-width: 960px) {
+    body {
+      padding-inline: 1rem;
+      overflow-x: hidden;
+    }
+  }
+
+  /* Remove list styles on ul, ol elements with a list role,
+   which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  nav :where(ol, ul) {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* Anchor elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Make media elements easier to work with */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  /* Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* Reset form and fieldset spacing */
+  form,
+  fieldset {
+    padding: 0;
+  }
+
+  /* Create a root stacking context */
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Blocks */
+  .blur {
+    position: absolute;
+    width: var(--w, 22rem);
+    height: var(--h, 14rem);
+    border-radius: 50%;
+    background-color: var(--bg, #edd0ff);
+    filter: blur(212px);
+    z-index: -9999;
+    top: var(--top, -18%);
+    left: var(--left, 56%);
+  }
+
+  .chip {
+    width: var(--w, fit-content);
+    height: var(--h, auto);
+    border-radius: var(--rounded, 1.25rem);
+    background-color: var(--bg, var(--orange));
+    color: var(--fg, white);
+    padding-inline: var(--px, 0.75rem);
+    padding-block: var(--py, 0.5rem);
+    font-size: var(--fs, 0.75rem);
+  }
+
+  .content__title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    text-wrap: balance;
+  }
+
+  .content__title > * {
+    color: var(--color);
+    font-size: var(--fs, 2.5rem);
+    font-weight: var(--fw, bold);
+  }
+
+  .content__title > :nth-child(1) {
+    --color: var(--clr-foreground, var(--black));
+  }
+  .content__title > :nth-child(2) {
+    --color: var(--orange);
+  }
+  .content__title > :nth-child(3) {
+    --color: var(--clr-text, --gray);
+    --fs: clamp(1.125rem, 2.5vw, 1.5rem);
+    margin-top: 0.625rem;
+  }
+</style>

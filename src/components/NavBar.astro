@@ -1,0 +1,203 @@
+---
+import Toggle from "./Toggle.astro";
+import navData from "../data/navData";
+import Button from "@/components/Button.astro";
+import NavLink from "./NavLink";
+import MobileNavLink from "./MobileNavLink";
+import BurgerMenu from "./BurgerMenu";
+import { Icon } from "astro-icon";
+---
+
+<header id="navbar" class="primary-header">
+  <div class="logo-wrapper">
+    <div class="logo">
+      <Icon name="terminal" width="30" />
+      <a href="#" class="brand-name">
+        <h1>Antonio</h1>
+      </a>
+    </div>
+    <Toggle />
+  </div>
+  <nav class="nav-wrapper">
+    <ul class="nav-list">
+      {
+        navData.map((item) => (
+          <li class="nav-link" role="list">
+            <NavLink
+              client:load
+              to={item?.to}
+              activeClass={item?.activeClass}
+              text={item?.text}
+              isMobile={false}
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <MobileNavLink client:load />
+    <NavLink client:load to="contact">
+      <Button as="button" variant="filled" size="sm" text="Contact" />
+    </NavLink>
+    <BurgerMenu client:load />
+  </nav>
+
+  <style>
+    .primary-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-inline: 3rem;
+      isolation: isolate;
+      z-index: 9999;
+      background-color: var(--clr-background, white);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+      display: flex;
+      gap: 2rem;
+      font-size: 1rem;
+      min-height: 10vh;
+      width: 100%;
+    }
+
+    .primary-header .logo-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+      gap: 2rem;
+    }
+
+    .logo-wrapper > .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      @media (max-width: 960px) {
+        & > [astro-icon] {
+          display: none;
+        }
+      }
+    }
+
+    .logo h1 {
+      color: var(--clr-foreground, var(--black));
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .primary-header .nav-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      font-weight: 400;
+    }
+
+    .nav-wrapper .nav-list {
+      display: flex;
+      gap: 2rem;
+      margin-inline: 4rem;
+
+      @media (max-width: 960px) {
+        display: none;
+      }
+    }
+
+    :global(.nav-link) {
+      position: relative;
+    }
+
+    :global(.nav-link::after) {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 100%;
+      height: 2px;
+      border-radius: 1px;
+      transform: scaleX(0);
+      background-color: var(--orange);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    :global(.nav-link:hover) {
+      color: var(--orange);
+      cursor: pointer;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    .nav-wrapper :global(> astro-island:first-of-type > .nav-list--mobile) {
+      position: fixed;
+      left: 0;
+      top: 0;
+      min-height: 100svh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6rem;
+      background-color: var(--clr-background, white);
+      font-size: 1.5rem;
+      font-weight: 400;
+
+      & :global(> .nav-links--mobile) {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        font-size: 1.125rem;
+      }
+    }
+
+    .nav-wrapper :global(> astro-island:nth-of-type(2) > *) {
+      @media (max-width: 960px) {
+        display: none;
+      }
+    }
+
+    .nav-wrapper :global(> astro-island:last-of-type > .burger) {
+      cursor: pointer;
+      isolation: isolate;
+      padding-block: 0.5rem;
+      height: 56px;
+      margin-left: auto;
+      border: none;
+      background-color: transparent;
+
+      &:global(> *) {
+        pointer-events: none;
+      }
+
+      &:global(> * + *) {
+        margin-top: 0.375rem;
+      }
+
+      &:global(> .line-1) {
+        display: block;
+        height: 0.125rem;
+        width: 2rem;
+        background-color: var(--clr-foreground, var(--black));
+      }
+
+      &:global(> .line-2) {
+        display: block;
+        height: 0.125rem;
+        width: 1.5rem;
+        background-color: var(--clr-foreground, var(--black));
+      }
+
+      &:global(> .line-3) {
+        display: block;
+        height: 0.125rem;
+        width: 1rem;
+        background-color: var(--clr-foreground, var(--black));
+      }
+      @media (min-width: 959px) {
+        display: none;
+      }
+    }
+  </style>
+</header>

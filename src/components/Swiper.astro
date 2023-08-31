@@ -1,0 +1,228 @@
+---
+import projectsData from "../data/projectsData";
+import Button from "./Button.astro";
+---
+
+<swiper-container init="false" class="portfolio-swiper">
+  {
+    projectsData.map((project) => (
+      <swiper-slide>
+        <figure class="project-slider">
+          <div class="overlay-container">
+            <img
+              loading="lazy"
+              src={project.img.src}
+              alt=""
+              width={project.img.width}
+              height={project.img.height}
+            />
+            <div class="button-group">
+              <Button
+                as="a"
+                variant="circle"
+                size="xs"
+                text="Demo"
+                icons={{ name: "link", side: "left" }}
+                href={project.link}
+                target="_blank"
+                class="code-link"
+              />
+              {project?.code && (
+                <Button
+                  as="a"
+                  variant="circle"
+                  size="xs"
+                  text="Code"
+                  icons={{ name: "code", side: "left" }}
+                  href={project?.code}
+                  target="_blank"
+                  class="code-link"
+                />
+              )}
+            </div>
+          </div>
+          <figcaption class="detail">
+            <p class="title">{project.title}</p>
+
+            <p class="description">{project.desc}</p>
+          </figcaption>
+          <div class="chips-group">
+            {project.techs.map((tech, idx) => (
+              <span class="chip">{tech}</span>
+            ))}
+          </div>
+        </figure>
+      </swiper-slide>
+    ))
+  }
+</swiper-container>
+
+<script>
+  import { register } from "swiper/element/bundle";
+  import type { Swiper } from "swiper/types";
+  register();
+
+  const swiperEl = document.querySelector("swiper-container");
+
+  const params = {
+    pagination: { clickable: true },
+    grabCursor: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
+    breakpoints: {
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      960: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+    injectStyles: [
+      `.swiper-pagination-bullet-active {
+        background: var(--orange);
+      }
+      `,
+    ],
+  };
+
+  Object.assign(swiperEl, params);
+  swiperEl.initialize();
+</script>
+
+<style>
+  .swiper {
+    overflow: auto;
+    width: 100%;
+    height: 70%;
+  }
+
+  .portfolio-swiper {
+    margin-top: 3rem;
+    height: 40rem;
+    width: 100%;
+    padding-inline: 3rem;
+  }
+
+  .portfolio-swiper :global(> swiper-slide) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+
+    &:hover,
+    &:focus-visible {
+      scale: 0.9;
+    }
+
+    &:hover > .project-slider,
+    &:focus-visible > .project-slider {
+      filter: drop-shadow(1px 2px 13px rgba(0, 0, 0, 0.25));
+      border-color: transparent;
+    }
+  }
+
+  .portfolio-swiper .project-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    width: 30rem;
+    min-height: 32rem;
+    background-color: rgba(255, 255, 255, 0.26);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: var(--boxShadow);
+    border-radius: 1.25rem;
+  }
+
+  .portfolio-swiper :global(.project-slider img) {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0px 2px 13px rgba(0, 0, 0, 0.25));
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid var(--blueCard);
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .project-slider > .overlay-container {
+    position: relative;
+    cursor: pointer;
+
+    &:hover > .button-group {
+      visibility: visible;
+    }
+    &:hover > .button-group::before {
+      visibility: visible;
+      height: 100%;
+    }
+  }
+
+  .project-slider .title {
+    color: var(--orange);
+    font-size: 1.25rem;
+  }
+  .project-slider .description {
+    font-size: clamp(0.75rem, 1.45vw, 0.875rem);
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+
+  .overlay-container > .button-group {
+    position: absolute;
+    isolation: isolate;
+    inset: 0 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    gap: 0.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 0;
+      z-index: -1;
+      height: 0;
+      border-radius: 1rem;
+      visibility: hidden;
+      background-color: var(--orange);
+      opacity: 0.5;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .overlay-container > .button-group > a {
+    --w: 2rem;
+    --bg: var(--orange);
+    --fg: white;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+
+    & :global([astro-icon]) {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &:hover {
+      --bg: white;
+      --fg: var(--orange);
+      --w: 5rem;
+    }
+  }
+
+  .project-slider .chips-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { SIZES } from "@/data/constant";
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+  text: string;
+  href?: string;
+  size: keyof typeof SIZES;
+  icons?: {
+    name: string;
+    side: "left" | "right";
+  };
+  variant?: "filled" | "white" | "circle";
+};
+
+const {
+  text,
+  href,
+  size,
+  icons,
+  variant = "filled",
+  class: className,
+  as: Tag,
+  ...attr
+} = Astro.props;
+const styles = SIZES[size];
+---
+
+<Tag
+  href={href}
+  class:list={["link", className]}
+  data-variant={variant}
+  {...attr}
+  style={styles}
+>
+  {
+    icons && icons.side === "left" && (
+      <Icon name={icons.name} height="24" width="24" />
+    )
+  }
+  <span>{text}</span>
+  {
+    icons && icons.side === "right" && (
+      <Icon name={icons.name} height="24" width="24" />
+    )
+  }
+</Tag>
+
+<style>
+  .link {
+    display: flex;
+    gap: 0.5rem;
+    font-size: var(--fs);
+    padding-inline: var(--px);
+    padding-block: var(--py);
+    border-radius: var(--rounded);
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+
+    & [astro-icon] {
+      display: inline-block;
+    }
+
+    @media (max-width: 960px) {
+      --fs: 0.75rem !important;
+      --px: 14px !important;
+      --py: 8px !important;
+      --rounded: 1rem !important;
+    }
+  }
+
+  .link[data-variant="filled"] {
+    background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
+    box-shadow: 0px 20px 24px 3px rgba(251, 161, 40, 0.42);
+    color: white;
+
+    &:hover {
+      background: white;
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+  }
+  .link[data-variant="white"] {
+    --fs: 1rem;
+    padding: 0.625rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    border: none;
+    background: white;
+    color: #5290fd;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  .link[data-variant="circle"] {
+    --rounded: 50%;
+    --bg: white;
+    --fg: #5290fd;
+    --w: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    border: none;
+    background: var(--bg);
+    color: var(--fg);
+    width: var(--w);
+    transition: all 0.3s ease-out;
+
+    & > span {
+      width: 0;
+      display: none;
+      overflow: hidden;
+      transition: all 0.3s ease-out;
+    }
+
+    &:hover {
+      --bg: #5290fd;
+      --fg: white;
+      --rounded: 2rem;
+      --w: 6.25rem;
+      scale: 1.1;
+
+      & > span {
+        width: fit-content;
+        display: inline-block;
+      }
+    }
+  }
+</style>

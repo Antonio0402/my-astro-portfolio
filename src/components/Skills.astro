@@ -1,0 +1,103 @@
+---
+import techData from "@/data/techData";
+---
+
+<div class="skills" id="skills">
+  <div class="content">
+    <div class="content__title">
+      <span>Skills</span>
+      <span>Technologies</span>
+      <span>
+        I like playing around and learning new programming languages, frameworks
+        and libraries. These are the technologies that I love working with:
+      </span>
+    </div>
+  </div>
+  <ul class="technologies" role="list">
+    {
+      techData.map((tech) => (
+        <li class="icon-list">
+          <div class="circle">
+            <img
+              src={tech.img}
+              alt={`${tech.info} icon`}
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+          <span>{tech.info}</span>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+    min-height: 30vh;
+    margin-block: 8rem;
+    margin-inline: auto;
+    color: var(--black);
+  }
+
+  .skills .content {
+    position: relative;
+    min-width: 320px;
+    max-width: 60ch;
+  }
+
+  .content > .content__title > :last-child {
+    --fw: 400;
+    margin-top: 0.5rem;
+  }
+
+  .skills > .technologies {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(9rem, 1fr) minmax(9rem, 1fr)
+    );
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    font-size: 1rem;
+
+    & span:first-of-type {
+      color: var(--clr-foreground);
+    }
+  }
+
+  .technologies > .icon-list {
+    display: grid;
+    gap: 0.25rem;
+    place-items: center;
+    text-align: center;
+  }
+  .technologies .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: rgba(255, 255, 255, 0.25);
+    color: var(--clr-circle);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    box-shadow: var(--boxShadow);
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+      box-shadow: 0 8px 32px 0 rgba(251, 161, 40, 0.42);
+    }
+  }
+</style>

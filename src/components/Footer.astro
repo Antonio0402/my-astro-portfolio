@@ -1,0 +1,140 @@
+---
+import Wave from "@asset/wave.png";
+import { Icon } from "astro-icon";
+---
+
+<div class="footer">
+  <img src={Wave.src} alt="" width={Wave.width} height={Wave.height} />
+  <div class="content">
+    <div class="logo">
+      <Icon name="terminal" width="64" />
+      <a href="#" class="brand-name">
+        <h1>Antonio</h1>
+      </a>
+    </div>
+    <div class="contact">
+      <span>Let's connect</span>
+      <div class="social-icons">
+        <a
+          href="https://github.com/Antonio0402"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="github" width="42" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/thanh-huy-doan-05528411a/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="linkedIn" width="42" />
+        </a>
+        <a
+          href="https://www.facebook.com/Hutieu0402/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="facebook" width="42" />
+        </a>
+        <a href="mailto:"></a>
+        <a href="mailto:doanthanhhhuy0402@gmail.com">
+          <Icon name="email" width="42" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <small class="copy-right"
+    >All Rights Reserved © 2023
+    <br />Made with ❤️ by Antonio</small
+  >
+</div>
+
+<style lang="css">
+  .footer {
+    display: grid;
+    place-items: center;
+    position: relative;
+    margin-inline: min(-5rem, calc(1440px - 90vw));
+    margin-block: -0.5rem;
+    margin-top: -7rem;
+  }
+
+  .footer {
+    grid-column: span 1 / -1;
+    grid-row: span 1 / -1;
+  }
+
+  .footer .content {
+    position: absolute;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    width: 100%;
+    gap: 4rem;
+    color: white;
+    margin-top: 4rem;
+    padding-inline: max(3rem, calc(90vw - 1440px));
+
+    @media (max-width: 960px) {
+      flex-direction: column;
+      align-items: center;
+      scale: 0.5;
+    }
+  }
+
+  .content > .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    @media (max-width: 960px) {
+      & > [astro-icon] {
+        width: 48px;
+      }
+    }
+  }
+
+  .content > .logo h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  .footer .copy-right {
+    align-self: flex-end;
+    position: absolute;
+    padding-block: 2rem;
+  }
+
+  .content > .brand-name {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .content > .contact {
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+  }
+
+  .contact > span:first-of-type {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  .contact > .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    & [astro-icon] {
+      --icon: white;
+      --clr-icon-path: black;
+      transition: transform 0.2s ease-in-out;
+    }
+    & [astro-icon]:hover {
+      --icon: var(--dark);
+      --clr-icon-path: var(--light);
+      transform: translateY(-0.5rem);
+    }
+  }
+</style>

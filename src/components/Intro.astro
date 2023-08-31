@@ -1,0 +1,220 @@
+---
+import { Icon } from "astro-icon";
+import Vector1 from "@asset/Vector1.png";
+import Vector2 from "@asset/Vector2.png";
+import Portrait from "@asset/Portrait.png";
+import heartEmoji from "@asset/heartEmoji.png";
+import humbleEmoji from "@asset/humbleEmoji.png";
+import Floating from "@components/Floating.astro";
+import Button from "@/components/Button.astro";
+import FloatingItem from "./FloatingItem";
+import type { CSSProperties } from "react";
+import Emoji from "./Emoji";
+---
+
+<section class="intro" id="intro">
+  <div class="content">
+    <div class="content__title">
+      <span>Hi, I'm</span>
+      <span>Thanh Huy Doan</span>
+      <span>
+        Frontend Developer with a solid background on digital marketing and a ❤️
+        for web designing meets SEO friendly</span
+      >
+    </div>
+    <Button
+      as="a"
+      href="#"
+      text="Download CV"
+      size="sm"
+      download
+      class="download"
+    />
+    <div class="intro__social-icons">
+      <a
+        href="https://github.com/Antonio0402"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="github" width="42" />
+      </a>
+      <a
+        href="https://www.freecodecamp.org/Antonio04"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="fcc" width="48" />
+      </a>
+      <a
+        href="https://www.frontendmentor.io/profile/Antonio0402"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="fem" width="42" />
+      </a>
+    </div>
+  </div>
+  <div class="illustration">
+    <img src={Vector1.src} width={Vector1.width} height={Vector1.height} />
+    <img src={Vector2.src} width={Vector2.width} height={Vector2.height} />
+    <img src={Portrait.src} alt="avatar picture" width={285} />
+
+    <Emoji client:only="react" className="floating-emoji" />
+
+    <FloatingItem
+      whileInView={{ x: "-6%" }}
+      transition={{ duration: 2 }}
+      className="floating-div"
+      style={{ "--top": "-4%", "--left": "74%" } as CSSProperties}
+      client:load
+    >
+      <Floating img={heartEmoji} text1="Web" text2="Developer" />
+    </FloatingItem>
+
+    <FloatingItem
+      whileInView={{ x: "calc(-100% + 2rem)" }}
+      transition={{ duration: 2 }}
+      className="floating-div"
+      style={{ "--left": "9rem", "--top": "18rem" } as CSSProperties}
+      client:load
+    >
+      <Floating img={humbleEmoji} text1="Digital" text2="Marketer" />
+    </FloatingItem>
+
+    <div class="blur" style={{ "--bg": "rgb(238 210 255)" }}></div>
+    <div
+      class="blur"
+      style={{
+        "--bg": "#C1F5FF",
+        "--top": "17rem",
+        "--left": "-9rem",
+        "--w": "21rem",
+        "--h": "11rem",
+      }}
+    >
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    display: flex;
+    margin-inline: auto;
+    min-height: 77vh;
+    margin-top: 8rem;
+    align-items: center;
+  }
+
+  .intro > * {
+    flex: 1;
+  }
+
+  .intro .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .content :global(> .content__title) {
+    --gap: 0.25rem;
+  }
+
+  .content > .content__title > :where(:first-child, :nth-child(2)) {
+    --fw: bold;
+    --fs: clamp(3rem, 4vw + 0.75rem, 4rem);
+  }
+
+  .content > .content__title > :last-child {
+    --fw: 100;
+    max-width: 35ch;
+    margin-top: 0.5rem;
+  }
+
+  .content > .download {
+    width: fit-content;
+    min-height: 2rem;
+    margin-top: 1rem;
+  }
+
+  .intro__social-icons {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    & [astro-icon] {
+      transition: transform 0.2s ease-in-out;
+    }
+    & [astro-icon]:hover {
+      --icon: var(--orange);
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  .intro .illustration {
+    position: relative;
+    /* isolation: isolate; */
+    min-width: 320px;
+    min-height: 400px;
+  }
+  .intro .illustration :global(> astro-island > *),
+  .intro .illustration > * {
+    position: absolute;
+    scale: var(--scale);
+    left: var(--left);
+    top: var(--top);
+  }
+
+  .intro .illustration > :nth-child(1) {
+    --scale: 0.69;
+    --left: -15%;
+    --top: -9%;
+  }
+  .intro .illustration > :nth-child(2) {
+    --scale: 0.67;
+    --top: -4.6rem;
+    --left: -3rem;
+  }
+  .intro .illustration > :nth-child(3) {
+    --scale: 1.4;
+    --left: 28%;
+  }
+  .illustration :global(> astro-island:first-of-type > .floating-emoji) {
+    --scale: 0.62;
+    --top: -19%;
+    --left: -24%;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  @media (max-width: 960px) {
+    .intro {
+      flex-direction: column;
+      gap: 7rem;
+      height: 64rem;
+    }
+
+    .intro .content {
+      margin-inline: auto;
+    }
+
+    .intro .illustration {
+      scale: 0.8;
+      left: -2rem;
+      margin-inline: auto;
+    }
+
+    .illustration :global(> astro-island:first-of-type > .floating-emoji) {
+      --left: -12%;
+    }
+    .illustration .blur {
+      display: none;
+    }
+
+    .illustration :global(> astro-island:nth-of-type(2) > .floating-div) {
+      /* display: none; */
+      --top: -7rem !important;
+      --left: 55% !important;
+    }
+  }
+</style>

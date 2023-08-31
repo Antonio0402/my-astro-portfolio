@@ -1,0 +1,46 @@
+---
+import Swiper from "./Swiper.astro";
+---
+
+<section class="portfolio" id="portfolio">
+  <div class="content">
+    <p class="title">Projects</p>
+    <p class="subtitle">Selected Pratice Projects</p>
+    <div
+      class="blur"
+      style={{ "--bg": "skyblue", "--top": "13rem", "--left": "-18rem" }}
+    >
+    </div>
+  </div>
+  <Swiper />
+</section>
+
+<style>
+  .portfolio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+    min-height: 100vh;
+    font-weight: bold;
+    /* margin-bottom: 7rem; */
+    gap: 2rem;
+    position: relative;
+  }
+
+  .portfolio .content {
+    position: relative;
+    min-width: 320px;
+    max-width: 60ch;
+  }
+
+  .portfolio .title {
+    font-size: 2rem;
+    color: var(--clr-foreground, var(--black));
+  }
+
+  .portfolio .subtitle {
+    font-size: 2.5rem;
+    color: var(--orange);
+  }
+</style>

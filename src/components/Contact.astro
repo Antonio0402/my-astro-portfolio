@@ -1,0 +1,222 @@
+---
+import Link from "./Button.astro";
+import Contact3D from "@asset/Contact3D.webp";
+import MotionContainer from "./MotionContainer";
+---
+
+<section class="contact" id="contact">
+  <div class="content">
+    <div class="content__title">
+      <span>Get in Touch</span>
+      <span>Contact me</span>
+      <a href="mailto:doanthanhhuy0402@gmail.com">doanthanhhuy0402@gmail.com</a>
+    </div>
+    <MotionContainer
+      client:visible
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ margin: "-40px" }}
+      transition={{ duration: 1 }}
+      className="main-circle"
+    >
+      <img src={Contact3D.src} width={Contact3D.width * 0.6} />
+    </MotionContainer>
+    <div
+      class="blur"
+      style={{ "--bg": "var(--purple)", "--top": "13rem", "--left": "-18rem" }}
+    >
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <form name="contact-form" method="post" id="contact-form">
+      <input
+        class="text-field"
+        type="text"
+        name="user_name"
+        placeholder="Name"
+      />
+      <input
+        class="text-field"
+        type="email"
+        name="user_email"
+        placeholder="Email"
+      />
+      <textarea class="text-field" name="message" placeholder="Message" rows="6"
+      ></textarea>
+      <Link as="button" type="submit" variant="filled" size="sm" text="Send" />
+      <span data-helper="text" class="helper-text"
+        >"Thanks for Contacting me"</span
+      >
+      <div
+        class="blur"
+        style={{
+          "--bg": "var(--purple)",
+          "--top": "1rem",
+          "--left": "8rem",
+        }}
+      >
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact {
+    display: flex;
+    align-items: baseline;
+    min-height: 70svh;
+    padding-inline: 3rem;
+    padding-block: 4rem;
+    margin-inline: auto;
+    @media (max-width: 960px) {
+      flex-direction: column;
+      align-items: center;
+      padding-inline: 0;
+      gap: 5rem;
+      min-height: 40rem;
+    }
+  }
+
+  .contact .content {
+    position: relative;
+    min-width: 320px;
+    & :global(> astro-island > *) {
+      margin-top: 2rem;
+    }
+  }
+
+  .content :global(> .content__title > :last-child) {
+    --fw: 700;
+    --fs: calc(18 / 16 * 1rem);
+    max-width: 35ch;
+    margin-top: 0.5rem;
+    position: relative;
+    transition: all 0.3s 0.2s ease-in;
+
+    &::before {
+      content: "👉";
+      position: absolute;
+      scale: 2;
+      left: 0;
+      opacity: 0;
+      transition: transform 0.5s ease-in, opacity 0.3s 0.1s ease-in;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      height: 2px;
+      width: 10%;
+      opacity: 0.5;
+      background-color: var(--blueCard);
+      border-radius: 2px;
+      transition: all 0.3s 0.2s ease-in;
+    }
+
+    &:hover {
+      margin-left: 3rem;
+    }
+
+    &:hover::after {
+      /* background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%); */
+      background-color: var(--orange);
+      box-shadow: 0 8px 32px 2px rgba(251, 161, 40, 0.42);
+      opacity: 1;
+      height: 3px;
+      width: 65%;
+    }
+
+    &:hover::before {
+      opacity: 1;
+      transform: translateX(-1.5rem);
+    }
+  }
+
+  .contact > * {
+    flex: 1;
+  }
+
+  .contact .form-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .form-wrapper > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .form-wrapper > .helper-text {
+    visibility: hidden;
+  }
+
+  .form-wrapper .text-field {
+    min-width: 20rem;
+    min-height: 2rem;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 2px solid var(--blueCard);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: var(--boxShadow);
+    border-radius: 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease-out;
+
+    &:focus,
+    &:active {
+      outline: 1px solid var(--orange);
+      border-color: var(--orange);
+      background-color: white;
+    }
+
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+  }
+
+  .form-wrapper > form > textarea {
+    min-height: 4rem;
+    resize: vertical;
+  }
+</style>
+
+<script>
+  import emailjs from "@emailjs/browser";
+
+  const helperText = document.querySelector(
+    "span[data-helper='text']"
+  ) as HTMLInputElement | null;
+  helperText.style.visibility = "hidden";
+
+  const contactForm = document.forms["contact-form"] as HTMLFormElement | null;
+  if (contactForm) {
+    contactForm.addEventListener("submit", sendEmail);
+  }
+
+  function sendEmail(event: SubmitEvent) {
+    event.preventDefault();
+
+    if (event.currentTarget) {
+      emailjs
+        .sendForm(
+          import.meta.env.EMAILJS_CONTACT_SERVICE,
+          import.meta.env.EMAILJS_CONTACT_FORM,
+          contactForm,
+          import.meta.env.EMAILJS_PUBLIC_KEY
+        )
+        .then((result) => {
+          helperText.style.visibility = "visibility";
+          alert(`Message successfully sent! ${result.text}`);
+          window.location.reload();
+        });
+    }
+  }
+</script>

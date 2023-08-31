@@ -1,0 +1,92 @@
+---
+import Cards from "./Cards.astro";
+import CardsWrapper from "./CardsWrapper";
+import { staggerContainer } from "@/utils/motion";
+---
+
+<section class="profiency" id="profiency">
+  <div class="content">
+    <div class="content__title">
+      <span>Proof of Profiency</span>
+      <span>Todo-verse</span>
+      <span>
+        This is a quadrathlon of Todo apps - Vanilla JS, React and Full Stack
+        (PERN).
+        <br />
+        From the basic skills of the web to master various (JavaScript) frameworks
+        applying to advanced projects.
+      </span>
+      <div>
+        <span>
+          Getting started with simple, straiforward in vanilla JS version
+          approach which represents 2 most popular programming paradigms:
+          funtional programing and object-oriented programing.
+        </span>
+        <span>
+          Then accelerate fundatamental knowledges by utilizing the powerful
+          functionalities of React for more complex, data-driven, reactive apps
+          using hooks and states.
+        </span>
+        <span>
+          Finally finished with PERN stack (PostgreSQL, Express, React, Node)
+          which adding the ability to create an API with CRUD functionality.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="blur"
+    style={{ "--bg": "#ABF1FF94", "--left": "0", "--top": "9rem" }}
+  >
+  </div>
+  <CardsWrapper
+    variants={staggerContainer}
+    initial="hidden"
+    whileInView="visible"
+    className="cards-container"
+    client:load
+  >
+    <Cards />
+  </CardsWrapper>
+</section>
+
+<style>
+  .profiency {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-inline: auto;
+    min-height: 30rem;
+    margin-block: 8rem;
+    padding-block: 4rem;
+
+    @media (max-width: 960px) {
+      margin-top: 0;
+      gap: 5rem;
+      min-height: 66rem;
+    }
+  }
+
+  .profiency .content {
+    position: relative;
+    min-width: 320px;
+  }
+
+  .content :global(> .content__title > :nth-child(3)) {
+    --fw: 400;
+    margin-top: 0.5rem;
+  }
+  .content :global(> .content__title > :last-child) {
+    --fw: 400;
+    --fs: clamp(0.875rem, 1.65vw, 1rem);
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .content > .download {
+    width: fit-content;
+    min-height: 2rem;
+    margin-top: 1rem;
+  }
+</style>

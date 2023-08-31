@@ -1,0 +1,50 @@
+---
+import CardItem from "./CardItem";
+import CardDetail from "./CardDetail.astro";
+import cardData from "@/data/cardData";
+import { fadeIn } from "@/utils/motion";
+---
+
+<div class="cards">
+  {
+    cardData.map((item, index) => (
+      <CardItem
+        variants={fadeIn("up", "spring", index * 0.5, 1)}
+        initial="hidden"
+        whileInView="visible"
+        client:load
+        className="card-wrapper"
+      >
+        <CardDetail
+          icon={item.icon}
+          heading={item.heading}
+          detail={item.detail}
+          demo={item.demo}
+          code={item?.code}
+        />
+      </CardItem>
+    ))
+  }
+</div>
+
+<style>
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+
+    @media (max-width: 960px) {
+      flex-direction: column;
+      max-width: 600px;
+      margin-inline: auto;
+      padding: 3rem;
+      gap: 2rem;
+    }
+  }
+
+  .cards :global(> astro-island:not(:first-of-type) > .card-wrapper) {
+    height: 100%;
+  }
+</style>

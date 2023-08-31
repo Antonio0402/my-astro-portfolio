@@ -1,0 +1,97 @@
+---
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon";
+type Props = {
+  icon: string;
+  heading: string;
+  detail: string;
+  demo: string;
+  code?: string;
+};
+
+const { icon, heading, detail, demo, code } = Astro.props;
+---
+
+<div class="card">
+  <Icon name={icon} width="56" />
+  <span>{heading}</span>
+  <span>{detail}</span>
+  <div class="button-group">
+    <Button
+      as="a"
+      variant="circle"
+      size="xs"
+      text="Demo"
+      icons={{ name: "link", side: "left" }}
+      href={demo}
+      target="_blank"
+    />
+    {
+      code && (
+        <Button
+          as="a"
+          variant="circle"
+          size="xs"
+          text="Code"
+          icons={{ name: "code", side: "left" }}
+          href={code}
+          target="_blank"
+        />
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 13rem;
+    height: 24rem;
+    gap: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.26);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: var(--boxShadow);
+    border-radius: 1.25rem;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      border: 2px solid var(--orangeCard);
+      box-shadow: 0 8px 32px 0 rgba(251, 161, 40, 0.42);
+      transform: translateY(-0.5rem);
+    }
+
+    @media (max-width: 960px) {
+      width: 100%;
+      height: 18rem;
+    }
+  }
+
+  .card > [astro-icon] {
+    border-radius: 50%;
+    padding: 0.25rem;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .card > span:first-of-type {
+    color: var(--clr-foreground, --gray);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card > .button-group {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+</style>
