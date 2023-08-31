@@ -1,40 +1,35 @@
-# Astro Starter Kit: Basics
+### Overview
+
+Realtor webiste is built using Next.js, a React framework for server-side rendering and static site generation. It is typed with Typescript and styled using Chakra UI component library.
+
+For state management, Jotai is chosen because of simple, fast React state solution.
+
+This project also is powered by a simple remake caching and synchronizing async state management, working similar to queryClient from React Query library
+
+Together, this project take advantages of Next.Js cutting-edge features and performance optimizations on routing and static rendering to build a fast, scalable commercial website.
+
+### Key Features
+
+1. Search and Filters
+   Find products easily with pagination, sorting, and advanced filters
+2. Responsive
+   Fully responsive design optimized for all devices
+3. Rapid API
+   Using Rapid API in order to fetching async datas and display filtered datas base on search query parameter
+4. SSG and SSR
+   The project supports both prefetched data on static routing as well as real-time datas when searching in order to create dynamic routing whichs ensures a sleek and responsive experience.
+
+### Installation
+
+Clone this repo and install all dependencies
 
 ```
-npm create astro@latest -- --template basics
+git clone https://github.com/Antonio0402/realtor-nextjs-project.git
+
+cd realtor-nextjs-project
+
+npm install
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -49,6 +44,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+### Screenshot
+
+![Desktop Design](./screenshots/desktop-design.png)
+
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check [Astro's documentation](https://docs.astro.build) or jump into Astro 's [Discord server](https://astro.build/chat).

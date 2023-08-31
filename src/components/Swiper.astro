@@ -108,6 +108,10 @@ import Button from "./Button.astro";
     height: 40rem;
     width: 100%;
     padding-inline: 3rem;
+
+    @media (max-width: 960px) {
+      padding-inline: 0;
+    }
   }
 
   .portfolio-swiper :global(> swiper-slide) {
@@ -158,10 +162,24 @@ import Button from "./Button.astro";
     position: relative;
     cursor: pointer;
 
-    &:hover > .button-group {
+    @media (max-width: 960px) {
+      & > .button-group {
+        visibility: visible;
+      }
+
+      & > .button-group::before {
+        visibility: visible;
+        height: 100%;
+      }
+    }
+
+    &:hover > .button-group,
+    &:active > .button-group {
       visibility: visible;
     }
-    &:hover > .button-group::before {
+
+    &:hover > .button-group::before,
+    &:active > .button-group::before {
       visibility: visible;
       height: 100%;
     }
@@ -213,7 +231,8 @@ import Button from "./Button.astro";
       height: 1rem;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
       --bg: white;
       --fg: var(--orange);
       --w: 5rem;

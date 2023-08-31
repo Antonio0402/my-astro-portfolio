@@ -99,14 +99,19 @@ import Emoji from "./Emoji";
 <style>
   .intro {
     display: flex;
+    align-items: center;
     margin-inline: auto;
     min-height: 77vh;
     margin-top: 8rem;
-    align-items: center;
+
+    @media (max-width: 960px) {
+      flex-direction: column;
+      overflow: hidden;
+    }
   }
 
   .intro > * {
-    flex: 1;
+    flex: 1 1 auto;
   }
 
   .intro .content {
@@ -153,10 +158,10 @@ import Emoji from "./Emoji";
 
   .intro .illustration {
     position: relative;
-    /* isolation: isolate; */
-    min-width: 320px;
+    min-width: 600px;
     min-height: 400px;
   }
+
   .intro .illustration :global(> astro-island > *),
   .intro .illustration > * {
     position: absolute;
@@ -178,6 +183,10 @@ import Emoji from "./Emoji";
   .intro .illustration > :nth-child(3) {
     --scale: 1.4;
     --left: 28%;
+
+    @media (max-width: 960px) {
+      --left: 10%;
+    }
   }
   .illustration :global(> astro-island:first-of-type > .floating-emoji) {
     --scale: 0.62;
@@ -214,7 +223,7 @@ import Emoji from "./Emoji";
     .illustration :global(> astro-island:nth-of-type(2) > .floating-div) {
       /* display: none; */
       --top: -7rem !important;
-      --left: 55% !important;
+      --left: 35% !important;
     }
   }
 </style>
