@@ -79,7 +79,6 @@ import MotionContainer from "./MotionContainer";
 
   .contact .content {
     position: relative;
-    min-width: 320px;
     & :global(> astro-island > *) {
       margin-top: 2rem;
     }
@@ -178,7 +177,7 @@ import MotionContainer from "./MotionContainer";
     }
 
     @media (max-width: 960px) {
-      width: 100%;
+      min-width: 100%;
     }
   }
 

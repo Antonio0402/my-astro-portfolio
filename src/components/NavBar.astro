@@ -46,7 +46,6 @@ import { Icon } from "astro-icon";
       position: fixed;
       top: 0;
       left: 0;
-      padding-inline: 3rem;
       isolation: isolate;
       z-index: 9999;
       min-height: 10vh;
@@ -54,15 +53,20 @@ import { Icon } from "astro-icon";
       background-color: var(--clr-background, white);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
       display: flex;
+      justify-content: space-evenly;
       gap: 2rem;
+      padding-inline: 3rem;
       font-size: 1rem;
+
+      @media (max-width: 960px) {
+        padding-inline: 1rem;
+      }
     }
 
     .primary-header .logo-wrapper {
-      flex: 1;
+      flex-shrink: 999;
       display: flex;
       align-items: center;
-      margin-right: auto;
       gap: 2rem;
     }
 
@@ -85,7 +89,6 @@ import { Icon } from "astro-icon";
     }
 
     .primary-header .nav-wrapper {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: end;
@@ -162,7 +165,6 @@ import { Icon } from "astro-icon";
       isolation: isolate;
       padding-block: 0.5rem;
       height: 56px;
-      margin-left: auto;
       border: none;
       background-color: transparent;
 
@@ -194,7 +196,8 @@ import { Icon } from "astro-icon";
         width: 1rem;
         background-color: var(--clr-foreground, var(--black));
       }
-      @media (min-width: 959px) {
+
+      @media (min-width: 961px) {
         display: none;
       }
     }

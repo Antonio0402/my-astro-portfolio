@@ -46,7 +46,6 @@ import techData from "@/data/techData";
 
   .skills .content {
     position: relative;
-    min-width: 320px;
     max-width: 60ch;
   }
 
@@ -59,13 +58,14 @@ import techData from "@/data/techData";
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(9rem, 1fr) minmax(9rem, 1fr)
+      minmax(8rem, 1fr) minmax(8rem, 1fr)
     );
     justify-items: center;
     align-items: center;
     gap: 1rem;
     width: 100%;
     padding-inline: 0;
+    overflow-x: hidden;
     font-size: 1rem;
 
     & span:first-of-type {
