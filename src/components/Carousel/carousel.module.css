@@ -1,0 +1,83 @@
+.carousel {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.certificate_slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  min-height: 12rem;
+  background-color: rgba(255, 255, 255, 0.26);
+  border: 7px solid var(--blueCard);
+  box-shadow: var(--boxShadow);
+  border-radius: 1.25rem;
+}
+
+.certificate_slider img {
+  width: 100%;
+  height: auto;
+  background: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--boxShadow);
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.certificate-slider figcaption {
+  color: var(--gray);
+}
+
+.slide_direction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left,
+.right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--clr-circle);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--boxShadow);
+  border-radius: 50%;
+  margin: auto 0.75rem;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.dot {
+  background-color: var(--gray);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+.active {
+  background-color: var(--orange);
+}

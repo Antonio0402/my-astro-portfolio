@@ -1,0 +1,127 @@
+---
+import MainCircle from "./MainCircle";
+import Upwork from "../asset/Upwork.png";
+import Fiverr from "../asset/Fiverr.png";
+import Amazon from "../asset/Amazon.png";
+import Shopify from "../asset/Shopify.png";
+import Facebook from "../asset/Facebook.png";
+---
+
+<MainCircle
+  client:visible
+  initial={{ rotate: 45 }}
+  whileInView={{ rotate: 0 }}
+  viewport={{ margin: "-40px" }}
+  transition={{ duration: 3.5 }}
+  className="main-circle"
+>
+  <div class="icon-circle" style={{ "--left": "6rem", "--top": "-3rem" }}>
+    <img
+      src={Upwork.src}
+      alt=""
+      width={Upwork.width * 0.6}
+      height={Upwork.height * 0.6}
+    />
+  </div>
+  <div class="icon-circle" style={{ "--left": "-3rem", "--top": "5rem" }}>
+    <img
+      src={Fiverr.src}
+      alt=""
+      width={Fiverr.width * 0.6}
+      height={Fiverr.height * 0.6}
+    />
+  </div>
+  <div class="icon-circle" style={{ "--left": "6rem", "--top": "5rem" }}>
+    <img
+      src={Amazon.src}
+      alt=""
+      width={Amazon.width * 0.6}
+      height={Amazon.height * 0.6}
+    />
+  </div>{" "}
+  <div class="icon-circle" style={{ "--left": "15rem", "--top": "5rem" }}>
+    <img
+      src={Shopify.src}
+      alt=""
+      width={Shopify.width * 0.6}
+      height={Shopify.height * 0.6}
+    />
+  </div>
+  <div class="icon-circle" style={{ "--left": "6rem", "--top": "13rem" }}>
+    <img
+      src={Facebook.src}
+      alt=""
+      width={Facebook.width * 0.6}
+      height={Facebook.height * 0.6}
+    />
+  </div>
+</MainCircle>
+<div
+  class="back-circle"
+  style={{
+    "--left": "18rem",
+    "--top": 0,
+    "--bg": "#1949b8",
+  }}
+>
+</div>
+<div
+  class="back-circle"
+  style={{
+    "--left": "18rem",
+    "--top": "8rem",
+    "--bg": "#f5c32c",
+  }}
+>
+</div>
+
+<style>
+  :global(astro-island > .main-circle) {
+    position: relative;
+    left: 9rem;
+    top: 2rem;
+    display: grid;
+    place-items: center;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.26);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: var(--smboxShadow);
+
+    @media (max-width: 960px) {
+      position: revert;
+    }
+  }
+
+  .main-circle .icon-circle {
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    width: 6rem;
+    height: 6rem;
+    border: 5px solid #ebebeb;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--smboxShadow);
+    background-color: white;
+  }
+
+  .back-circle {
+    position: absolute;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    left: var(--left);
+    top: var(--top);
+    background-color: var(--bg);
+    z-index: -1;
+    @media (max-width: 960px) {
+      left: 8rem !important;
+    }
+  }
+</style>

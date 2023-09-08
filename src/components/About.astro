@@ -1,12 +1,4 @@
 ---
-import { Link } from "react-scroll";
-import MainCircle from "@components/MainCircle";
-import Button from "@/components/Button.astro";
-import Upwork from "../asset/Upwork.png";
-import Fiverr from "../asset/Fiverr.png";
-import Amazon from "../asset/Amazon.png";
-import Shopify from "../asset/Shopify.png";
-import Facebook from "../asset/Facebook.png";
 import Seo3D from "../asset/Seo3D.webp";
 import MotionContainer from "./MotionContainer";
 ---
@@ -17,52 +9,48 @@ import MotionContainer from "./MotionContainer";
       <span>A bit about me</span>
       <div>
         <span>
-          I am a junior web developer based in HCM City, Vietnam, who enthusiast
-          with modern technologies with a drive for problem-solving in creative
-          ways to shipping beautiful and performance websites on time.
+          I am a junior web developer based in HCM City, Vietnam, who is
+          enthusiast for modern technologies with a drive for problem-solving in
+          creative ways to shipping beautiful and performance websites on time.
         </span>
         <span>
-          I will graduate from my 2nd bachelor's degree in IT from HCM
-          University of Technology next month. However I consider myself as
-          self-taught on web development with a strong discipline to learn,
-          improve and evolve. In addition to web development skills, I also have
-          a lot of affinity with UI and graphic design, I love camping,
-          meditation, travel, and photography.
+          I will graduate from my 2nd bachelor's degree in IT at HCM University
+          of Information Technology next month. However I consider myself as
+          self-taught on web development with a strong discipline for learning,
+          improving and evolving.
+        </span>
+        <span>
+          In addition to my web development skills, I possess a great affinity
+          for UI and graphic design. Additionally, I enjoy camping, meditation,
+          traveling, and photography.
         </span>
       </div>
       <span>In a bit of both worlds</span>
       <span>Marketing & Web Dev</span>
       <div>
         <span>
-          Coming from a background in marketing with 4 years experiences as an
-          team leader of small group of couple members in marketing deparment. I
-          quickly realized that the naturally strong attachment between content
-          and website's architecture is inseparable. As the world of digital
-          marketing continues to evolve, a good content SEO fully support
-          keyword research and on-page optimization solely will be not enough to
-          reach the targets without optimizing a website's technical
-          infrastructure and architecture which also plays a crucial role in
-          affecting website visibility and ranking in search engines.
+          After 4 years of leading a marketing team and gaining a strong
+          background in the field, I have come to truly understand that the
+          naturally strong attachment between content and website architecture
+          is inseparable.
         </span>
         <span>
-          My favorite part of coding is that it allows me to constanly challenge
-          my self to learn new thing. Building websites from a cool design that
-          has been well thought out is a amazing journey where I can apply my
-          innovation and new ideas can be implemented with a user-centric
-          approach into the visually appealing and intuitive digital
-          experiences.
+          In the constantly changing world of digital marketing, creating good
+          content and implementing SEO tactics that focus solely on keyword
+          research and on-page optimization is no longer enough to achieve
+          desired targets. Optimizing a website's technical infrastructure and
+          architecture also plays a crucial role in determining website
+          visibility and search engine ranking.
+        </span>
+        <span>
+          I love coding because it constantly challenges me to learn new things.
+          Building websites from well-thought-out designs is an amazing journey
+          where I can implement all my innovative ideas with a user-centric
+          approach. Creating digital experiences that are both intuitive and
+          attractive is incredibly fulfilling.
         </span>
       </div>
     </div>
-    <!-- <Link
-      client:load
-      to="contact"
-      spy={true}
-      smooth={true}
-      className="hired-button"
-    >
-      <Button as="button" variant="filled" size="sm" text="Hire Me" />
-    </Link> -->
     <div
       class="blur"
       style={{
@@ -74,73 +62,6 @@ import MotionContainer from "./MotionContainer";
     </div>
   </div>
   <div class="illustration">
-    <!-- <MainCircle
-      client:visible
-      initial={{ rotate: 45 }}
-      whileInView={{ rotate: 0 }}
-      viewport={{ margin: "-40px" }}
-      transition={{ duration: 3.5 }}
-      className="main-circle"
-    >
-      <div class="icon-circle" style={{ "--left": "6rem", "--top": "-3rem" }}>
-        <img
-          src={Upwork.src}
-          alt=""
-          width={Upwork.width * 0.6}
-          height={Upwork.height * 0.6}
-        />
-      </div>
-      <div class="icon-circle" style={{ "--left": "-3rem", "--top": "5rem" }}>
-        <img
-          src={Fiverr.src}
-          alt=""
-          width={Fiverr.width * 0.6}
-          height={Fiverr.height * 0.6}
-        />
-      </div>
-      <div class="icon-circle" style={{ "--left": "6rem", "--top": "5rem" }}>
-        <img
-          src={Amazon.src}
-          alt=""
-          width={Amazon.width * 0.6}
-          height={Amazon.height * 0.6}
-        />
-      </div>{" "}
-      <div class="icon-circle" style={{ "--left": "15rem", "--top": "5rem" }}>
-        <img
-          src={Shopify.src}
-          alt=""
-          width={Shopify.width * 0.6}
-          height={Shopify.height * 0.6}
-        />
-      </div>
-      <div class="icon-circle" style={{ "--left": "6rem", "--top": "13rem" }}>
-        <img
-          src={Facebook.src}
-          alt=""
-          width={Facebook.width * 0.6}
-          height={Facebook.height * 0.6}
-        />
-      </div>
-    </MainCircle>
-    <div
-      class="back-circle"
-      style={{
-        "--left": "18rem",
-        "--top": 0,
-        "--bg": "#1949b8",
-      }}
-    >
-    </div>
-    <div
-      class="back-circle"
-      style={{
-        "--left": "18rem",
-        "--top": "8rem",
-        "--bg": "#f5c32c",
-      }}
-    >
-    </div> -->
     <MotionContainer
       client:visible
       initial={{ scale: 0 }}
@@ -205,12 +126,6 @@ import MotionContainer from "./MotionContainer";
       --fs: 2.5rem;
       --color: var(--orange);
     }
-    .content :global(> astro-island > .hired-button) {
-      display: inline-block;
-      width: fit-content;
-      min-height: 2rem;
-      margin-top: 4rem;
-    }
 
     .about .illustration {
       position: relative;
@@ -226,50 +141,11 @@ import MotionContainer from "./MotionContainer";
 
     .illustration :global(> astro-island > .main-circle) {
       position: relative;
-      /* left: 9rem;
-      top: 2rem; */
       display: grid;
       place-items: center;
-      /* width: 18rem;
-      height: 18rem;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.26);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      box-shadow: var(--smboxShadow); */
 
       @media (max-width: 960px) {
         position: revert;
-      }
-    }
-
-    .illustration .icon-circle {
-      position: absolute;
-      left: var(--left);
-      top: var(--top);
-      width: 6rem;
-      height: 6rem;
-      border: 5px solid #ebebeb;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: var(--smboxShadow);
-      background-color: white;
-    }
-
-    .illustration .back-circle {
-      position: absolute;
-      height: 13rem;
-      width: 13rem;
-      border-radius: 50%;
-      left: var(--left);
-      top: var(--top);
-      background-color: var(--bg);
-      z-index: -1;
-      @media (max-width: 960px) {
-        left: 8rem !important;
       }
     }
   </style>

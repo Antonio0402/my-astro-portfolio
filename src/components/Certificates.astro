@@ -1,0 +1,146 @@
+---
+import certificatesData from "@/data/certificatesData";
+import Carousel from "./Carousel/Carousel";
+---
+
+<section class="certificates" id="certificates">
+  <div class="content">
+    <span>All my Certificates</span>
+    <span>of courses completion</span>
+    <span>from me...</span>
+  </div>
+  <div
+    class="blur"
+    style={{ "--bg": "skyblue", "--top": "13rem", "--left": "-18rem" }}
+  >
+  </div>
+  <!-- DIY carousel with framer motion -->
+  <!-- <div class="carousel-container">
+    <div class="swiper">
+      <Carousel certificates={certificatesData} client:load />
+    </div>
+  </div> -->
+  <swiper-container
+    slider-per-view="1"
+    pagination="true"
+    pagination-clickable="true"
+    class="certificates-swiper"
+  >
+    {
+      certificatesData.map((client) => (
+        <swiper-slide>
+          <figure class="certificate-slider">
+            <img
+              src={client.img.src}
+              alt="certificates picture"
+              width={client.img.width}
+              height={client.img.height}
+            />
+            <figcaption>{client.name}</figcaption>
+          </figure>
+        </swiper-slide>
+      ))
+    }
+  </swiper-container>
+</section>
+
+<style>
+  .certificates {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-block: 8rem;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .certificates .content {
+    margin-right: auto;
+  }
+
+  .certificates .content > * {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .content > *:nth-child(2) {
+    color: var(--orange);
+  }
+
+  .certificates .swiper {
+    overflow: auto;
+    width: 100%;
+    height: 70%;
+  }
+
+  /* .certificates .carousel-container {
+    width: 100%;
+    height: 70%;
+  } */
+
+  /* .carousel-container > .swiper {
+    margin: auto;
+    max-width: 30rem;
+    height: 40rem;
+    padding-inline: 3rem;
+
+    @media (max-width: 960px) {
+      padding-inline: 0;
+    }
+  } */
+
+  .certificates-swiper {
+    width: 100%;
+    height: 40rem;
+    padding-inline: 3rem;
+
+    @media (max-width: 960px) {
+      padding-inline: 0;
+    }
+  }
+
+  .certificates-swiper :global(> swiper-slide) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .certificates-swiper :global(> swiper-slide > .certificate-slider) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 30rem;
+    padding: 1rem;
+    min-height: 12rem;
+    background-color: rgba(255, 255, 255, 0.26);
+    border: 7px solid var(--blueCard);
+    box-shadow: var(--boxShadow);
+    border-radius: 1.25rem;
+    cursor: grab;
+  }
+
+  .certificates-swiper :global(.swiper-pagination-bullet-active) {
+    background: var(--orange);
+  }
+  .certificates-swiper :global(.certificate-slider > img) {
+    width: 100%;
+    height: auto;
+    background: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--boxShadow);
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+  }
+  .certificates-swiper :global(> swiper-slide > figcaption) {
+    color: var(--gray);
+  }
+</style>
+
+<script>
+  import { register } from "swiper/element/bundle";
+  register();
+</script>

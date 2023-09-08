@@ -11,7 +11,7 @@ const projectsData = [
   {
     img: frontendMentor,
     title: "All my Frontend Mentor Challenges",
-    desc: "This is my profile site which includes all the completed challenges I've ever taken. There are a lot of cool visiual UI/UX design helping strengthen my skills in HTML, CSS and JavaScript/TypeScript as well as other React state management libs by solving these challanges.",
+    desc: "This is my profile site which includes all the completed challenges I've ever taken. There are a lot of cool visiual UI/UX design helping strengthen and sharpen my skills in HTML, CSS and JavaScript/TypeScript as well as other React state management libs by solving these challanges.",
     techs: ["Tailwind", "React", "Zustand", "Redux-Toolkit", "Styled Componets", "Bootstrap"],
     link: "https://www.frontendmentor.io/profile/Antonio0402/solutions",
   },
