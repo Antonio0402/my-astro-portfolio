@@ -206,10 +206,10 @@ import MotionContainer from "./MotionContainer";
     if (event.currentTarget) {
       emailjs
         .sendForm(
-          import.meta.env.EMAILJS_CONTACT_SERVICE,
-          import.meta.env.EMAILJS_CONTACT_FORM,
+          import.meta.env.VITE_EMAILJS_CONTACT_SERVICE,
+          import.meta.env.VITE_EMAILJS_CONTACT_FORM,
           contactForm,
-          import.meta.env.EMAILJS_PUBLIC_KEY
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
         .then((result) => {
           helperText.style.visibility = "visibility";

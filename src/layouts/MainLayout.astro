@@ -63,13 +63,15 @@ const { title } = Astro.props;
       setInitialColourMode(initialColourMode);
     </script>
     <script
+      is:inline
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
     <script>
+      import emailjs from "@emailjs/browser";
       (function () {
         // https://dashboard.emailjs.com/admin/account
-        emailjs.init(import.meta.env.EMAILJS_PUBLIC_KEY);
+        emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
       })();
     </script>
     <title>{title}</title>
@@ -84,7 +86,7 @@ const { title } = Astro.props;
 <style is:global>
   @font-face {
     font-family: "Gumela";
-    src: url("/fonts/Gumela-Regular.otf") format("otf");
+    src: url("./fonts/gumela-regular-webfont.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
