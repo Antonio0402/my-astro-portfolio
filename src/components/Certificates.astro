@@ -15,12 +15,12 @@ import Carousel from "./Carousel/Carousel";
   >
   </div>
   <!-- DIY carousel with framer motion -->
-  <!-- <div class="carousel-container">
+  <div class="carousel-container">
     <div class="swiper">
       <Carousel certificates={certificatesData} client:load />
     </div>
-  </div> -->
-  <swiper-container
+  </div>
+  <!-- <swiper-container
     slider-per-view="1"
     pagination="true"
     pagination-clickable="true"
@@ -41,7 +41,7 @@ import Carousel from "./Carousel/Carousel";
         </swiper-slide>
       ))
     }
-  </swiper-container>
+  </swiper-container> -->
 </section>
 
 <style>
@@ -70,17 +70,17 @@ import Carousel from "./Carousel/Carousel";
   }
 
   .certificates .swiper {
-    overflow: auto;
+    /* overflow: auto; */
     width: 100%;
     height: 70%;
   }
 
-  /* .certificates .carousel-container {
+  .certificates .carousel-container {
     width: 100%;
     height: 70%;
-  } */
+  }
 
-  /* .carousel-container > .swiper {
+  .carousel-container > .swiper {
     margin: auto;
     max-width: 30rem;
     height: 40rem;
@@ -89,7 +89,7 @@ import Carousel from "./Carousel/Carousel";
     @media (max-width: 960px) {
       padding-inline: 0;
     }
-  } */
+  }
 
   .certificates-swiper {
     width: 100%;
