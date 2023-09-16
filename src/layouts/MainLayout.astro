@@ -68,6 +68,9 @@ const { title } = Astro.props;
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
     <script>
+      import { register } from "swiper/element/bundle";
+      register();
+
       import emailjs from "@emailjs/browser";
       (function () {
         // https://dashboard.emailjs.com/admin/account

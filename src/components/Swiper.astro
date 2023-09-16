@@ -58,11 +58,7 @@ import Button from "./Button.astro";
 </swiper-container>
 
 <script>
-  import { register } from "swiper/element/bundle";
-  import type { Swiper } from "swiper/types";
-  register();
-
-  const swiperEl = document.querySelector("swiper-container") as HTMLElement;
+  const swiperEl = document.querySelector("swiper-container");
 
   const params = {
     pagination: { clickable: true },

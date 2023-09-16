@@ -84,6 +84,15 @@ import MotionContainer from "./MotionContainer";
     }
   }
 
+  @keyframes wave {
+    from {
+      rotate: -10deg;
+    }
+    to {
+      rotate: 50deg;
+    }
+  }
+
   .content :global(> .content__title > :last-child) {
     --fw: 700;
     --fs: calc(18 / 16 * 1rem);
@@ -93,12 +102,16 @@ import MotionContainer from "./MotionContainer";
     transition: all 0.3s 0.2s ease-in;
 
     &::before {
-      content: "👉";
+      content: "👋";
       position: absolute;
       scale: 2;
       left: 0;
       opacity: 0;
+      will-change: transform;
       transition: transform 0.5s ease-in, opacity 0.3s 0.1s ease-in;
+      animation: wave 1000ms infinite alternate ease-in-out backwards;
+      animation-play-state: paused;
+      transform-origin: 80% 75%;
     }
 
     &::after {
@@ -130,6 +143,7 @@ import MotionContainer from "./MotionContainer";
     &:hover::before {
       opacity: 1;
       transform: translateX(-1.5rem);
+      animation-play-state: running;
     }
   }
 
