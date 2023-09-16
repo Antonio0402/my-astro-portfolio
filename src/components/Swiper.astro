@@ -6,7 +6,7 @@ import Button from "./Button.astro";
 <swiper-container init="false" class="portfolio-swiper">
   {
     projectsData.map((project) => (
-      <swiper-slide>
+      <swiper-slide lazy="true">
         <figure class="project-slider">
           <div class="overlay-container">
             <img
@@ -66,7 +66,6 @@ import Button from "./Button.astro";
     mousewheel: {
       forceToAxis: true,
     },
-    lazy: true,
     breakpoints: {
       480: {
         slidesPerView: 1,
