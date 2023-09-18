@@ -68,7 +68,7 @@ const techData = [
     info: "Jotai",
   },
   {
-    img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*elhu-42TzQEdsFjKDbQhhA.png",
+    img: "https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png",
     info: "React Query",
   },
   {

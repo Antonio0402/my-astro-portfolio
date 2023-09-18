@@ -85,6 +85,7 @@ const styles = SIZES[size];
       color: var(--orange);
     }
   }
+
   .link[data-variant="white"] {
     --fs: 1rem;
     padding: 0.625rem;
@@ -126,6 +127,18 @@ const styles = SIZES[size];
       --w: 6.25rem;
       scale: 1.1;
 
+      & > span {
+        width: fit-content;
+        display: inline-block;
+      }
+    }
+
+    @media (pointer: coarse) {
+      --bg: #5290fd;
+      --fg: white;
+      --rounded: 2rem;
+      --w: 6.25rem;
+      scale: 1.1;
       & > span {
         width: fit-content;
         display: inline-block;
