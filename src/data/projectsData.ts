@@ -1,11 +1,11 @@
-import frontendMentor from "../asset/frontendmentor-solutions.png";
-import travelTour from "../asset/travel-tour-website.png";
-import realtor from "../asset/realtor-nextjs.png";
-import cryptoverse from "../asset/cryptoverse.png";
-import movieOn from "../asset/movieOn-figma.jpg";
-import hostel from "../asset/hostel-figma.png";
-import blog from "../asset/pern-stack-blog.png";
-import portfolio from "../asset/portfolio.png";
+import frontendMentor from "../asset/frontendmentor-solutions.webp";
+import travelTour from "../asset/travel-tour-website.webp";
+import realtor from "../asset/realtor-nextjs.webp";
+import cryptoverse from "../asset/cryptoverse.webp";
+import movieOn from "../asset/movieOn-figma.webp";
+import hostel from "../asset/hostel-figma.webp";
+import blog from "../asset/pern-stack-blog.webp";
+import portfolio from "../asset/portfolio.webp";
 
 const projectsData = [
   {

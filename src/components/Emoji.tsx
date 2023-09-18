@@ -1,5 +1,5 @@
 import React from "react";
-import glassesEmoji from "../asset/glassesEmoji.png";
+import glassesEmoji from "../asset/glassesEmoji.webp";
 import { motion } from "framer-motion";
 
 const Emoji = ({ className }: { className: string }) => {
@@ -15,7 +15,7 @@ const Emoji = ({ className }: { className: string }) => {
           duration: 2,
         },
       }}
-      src={glassesEmoji.src.replace(".png", ".avif")}
+      src={glassesEmoji.src}
       alt=""
       width={glassesEmoji.width}
       height={glassesEmoji.height}

@@ -1,12 +1,12 @@
-import postgresAdvanced from "../asset/PostgreSQL-Advanced-Queries.png";
-import postgresClient from "../asset/PostgreSQL-Client-Applications.png";
-import cssAnimation from "../asset/CSS-Animation.png";
-import JWT from "../asset/JWT.png";
-import responsiveWeb from "../asset/responsive-web-design.png";
-import javascript from "../asset/javascript-algorithms-and-data-structures.png";
-import frontEnd from "../asset/front-end-development-libraries.png";
-import backEnd from "../asset/back-end-development-and-apis.png";
-import relationalDatabase from "../asset/relational-database-v8.png";
+import postgresAdvanced from "../asset/PostgreSQL-Advanced-Queries.webp";
+import postgresClient from "../asset/PostgreSQL-Client-Applications.webp";
+import cssAnimation from "../asset/CSS-Animation.webp";
+import JWT from "../asset/JWT.webp";
+import responsiveWeb from "../asset/responsive-web-design.webp";
+import javascript from "../asset/javascript-algorithms-and-data-structures.webp";
+import frontEnd from "../asset/front-end-development-libraries.webp";
+import backEnd from "../asset/back-end-development-and-apis.webp";
+import relationalDatabase from "../asset/relational-database-v8.webp";
 
 const certificatesData = [
   {
