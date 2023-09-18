@@ -56,9 +56,21 @@ import Emoji from "./Emoji";
     </div>
   </div>
   <div class="illustration">
-    <img src={Vector1.src} width={Vector1.width} height={Vector1.height} />
-    <img src={Vector2.src} width={Vector2.width} height={Vector2.height} />
-    <img src={Portrait.src} alt="avatar picture" width={285} />
+    <img
+      src={Vector1.src.replace(".png", ".avif")}
+      width={Vector1.width}
+      height={Vector1.height}
+    />
+    <img
+      src={Vector2.src.replace(".png", ".avif")}
+      width={Vector2.width}
+      height={Vector2.height}
+    />
+    <img
+      src={Portrait.src.replace(".png", ".avif")}
+      alt="avatar picture"
+      width={285}
+    />
 
     <Emoji client:only="react" className="floating-emoji" />
 

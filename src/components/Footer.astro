@@ -4,7 +4,12 @@ import { Icon } from "astro-icon";
 ---
 
 <div class="footer">
-  <img src={Wave.src} alt="" width={Wave.width} height={Wave.height} />
+  <img
+    src={Wave.src.replace(".png", ".avif")}
+    alt=""
+    width={Wave.width}
+    height={Wave.height}
+  />
   <div class="content">
     <div class="logo">
       <Icon name="terminal" width="64" />

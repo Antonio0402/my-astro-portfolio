@@ -12,10 +12,10 @@ import Button from "./Button.astro";
             <img
               loading="lazy"
               decoding="async"
-              src={project.img.src}
+              src={project.img?.src.replace(/(\.png|\.jpg)/, ".avif")}
               alt=""
-              width={project.img.width}
-              height={project.img.height}
+              width={project.img?.width}
+              height={project.img?.height}
             />
             <div class="button-group">
               <Button

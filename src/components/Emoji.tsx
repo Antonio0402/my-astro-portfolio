@@ -15,7 +15,7 @@ const Emoji = ({ className }: { className: string }) => {
           duration: 2,
         },
       }}
-      src={glassesEmoji.src}
+      src={glassesEmoji.src.replace(".png", ".avif")}
       alt=""
       width={glassesEmoji.width}
       height={glassesEmoji.height}
