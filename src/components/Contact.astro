@@ -2,6 +2,7 @@
 import Link from "./Button.astro";
 import Contact3D from "@asset/Contact3D.webp";
 import MotionContainer from "./MotionContainer";
+import type load from "astro-icon/lib/utils";
 ---
 
 <section class="contact" id="contact">
@@ -12,7 +13,7 @@ import MotionContainer from "./MotionContainer";
       <a href="mailto:doanthanhhuy0402@gmail.com">doanthanhhuy0402@gmail.com</a>
     </div>
     <MotionContainer
-      client:visible
+      client:load
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
       viewport={{ margin: "-40px" }}
