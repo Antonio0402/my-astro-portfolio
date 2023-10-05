@@ -1,0 +1,35 @@
+.card {
+  border-radius: 1.25rem;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  background-color: rgba(255, 255, 255, 0.26);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: var(--boxShadow);
+  cursor: pointer;
+}
+
+.card > * {
+  color: var(--color);
+  font-size: var(--fs, 2.5rem);
+  font-weight: var(--fw, bold);
+}
+
+.subtitle {
+  --color: var(--black);
+  --fs: 1.5rem;
+}
+
+.title {
+  --fw: 700;
+  --fs: 2.5rem;
+  --color: var(--orange);
+}
+
+.expand {
+  --fw: 400;
+  --fs: clamp(0.875rem, 1.65vw, 1rem);
+  --color: var(--clr-text, var(--gray));
+  margin-block: 1rem;
+}
