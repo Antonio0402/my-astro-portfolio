@@ -15,25 +15,16 @@ import { Icon } from "astro-icon";
     <div class="contact">
       <span>Let's connect</span>
       <div class="social-icons">
-        <a
-          href="https://github.com/Antonio0402"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/Antonio0402" target="_blank">
           <Icon name="github" width="42" />
         </a>
         <a
           href="https://www.linkedin.com/in/thanh-huy-doan-05528411a/"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <Icon name="linkedIn" width="42" />
         </a>
-        <a
-          href="https://www.facebook.com/Hutieu0402/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.facebook.com/Hutieu0402/" target="_blank">
           <Icon name="facebook" width="42" />
         </a>
         <a href="mailto:"></a>
@@ -131,7 +122,7 @@ import { Icon } from "astro-icon";
       --clr-icon-path: black;
       transition: transform 0.2s ease-in-out;
     }
-    & [astro-icon]:hover {
+    & > *:hover [astro-icon] {
       --icon: var(--dark);
       --clr-icon-path: var(--light);
       transform: translateY(-0.5rem);
