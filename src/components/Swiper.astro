@@ -58,9 +58,12 @@ import Button from "./Button.astro";
 </swiper-container>
 
 <script>
-  // import { Swiper } from "swiper";
+  import { Swiper } from "swiper";
+
   // new Swiper(".swiper");
-  const swiperEl = document.querySelector("swiper-container") as HTMLElement;
+  const swiperEl = document.querySelector(
+    "swiper-container"
+  ) as unknown as Swiper;
 
   const params = {
     pagination: { clickable: true },
@@ -91,7 +94,8 @@ import Button from "./Button.astro";
   };
 
   Object.assign(swiperEl, params);
-  swiperEl.initialize();
+
+  new Swiper(".swiper", params);
 </script>
 
 <style>

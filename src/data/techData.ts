@@ -56,6 +56,10 @@ const techData = [
     info: "PostgresSQL",
   },
   {
+    img: "https://skillicons.dev/icons?i=graphql",
+    info: "GraphQL",
+  },
+  {
     img: "https://skillicons.dev/icons?i=supabase",
     info: "Supabase",
   },
@@ -86,6 +90,14 @@ const techData = [
   {
     img: "https://skillicons.dev/icons?i=git",
     info: "Git",
+  },
+  {
+    img: "https://skillicons.dev/icons?i=wordpress",
+    info: "WordPress",
+  },
+  {
+    img: "https://skillicons.dev/icons?i=webpack",
+    info: "Webpack",
   },
 ]
 
