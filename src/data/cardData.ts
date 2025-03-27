@@ -26,4 +26,22 @@ const cardData = [
   },
 ]
 
+export const wpCardData = [
+  {
+    icon: "classic-wordpress",
+    heading: "Classic Theme Development",
+    detail: "HTML, CSS, PHP, WordPress, MySQL, JavaScript, jQuery",
+    demo: "https://dev-hostel-33.pantheonsite.io/",
+    code: "https://github.com/Antonio0402/hostel-33",
+    desc: "I have over a year of experience in WordPress development, during which I have successfully developed a variety of features and transformed the UI/UX for Kamereo's blog site. This project showcases my skills and creativity in creating a hostel theme for my family's business.",
+  },
+  {
+    icon: "gutenberg",
+    heading: "Gutenberg Block Development",
+    detail: "HTML, CSS, PHP, WordPress, MySQL, JavaScript, React",
+    demo: "https://dev-hostel-33.pantheonsite.io/",
+    desc: "This project showcases my adaptive skills in developing a custom block for the WordPress Gutenberg editor by applying React and JavaScript to transform the preceding classic theme into a more modern and user-friendly design.",
+  }
+]
+
 export default cardData;

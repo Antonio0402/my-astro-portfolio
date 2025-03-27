@@ -1,15 +1,16 @@
 ---
-import CardItem from "./CardItem";
-import CardDetail from "./CardDetail.astro";
-import cardData from "@/data/cardData";
-import { fadeIn } from "@/utils/motion";
+import CardItem from './CardItem';
+import CardDetail from './CardDetail.astro';
+// import cardData from '@/data/cardData';
+import { wpCardData } from '@/data/cardData';
+import { fadeIn } from '@/utils/motion';
 ---
 
 <div class="cards">
   {
-    cardData.map((item, index) => (
+    wpCardData.map((item, index) => (
       <CardItem
-        variants={fadeIn("up", "spring", index * 0.5, 1)}
+        variants={fadeIn('up', 'spring', index * 0.5, 1)}
         initial="hidden"
         whileInView="visible"
         client:load
@@ -21,6 +22,7 @@ import { fadeIn } from "@/utils/motion";
           detail={item.detail}
           demo={item.demo}
           code={item?.code}
+          desc={item.desc}
         />
       </CardItem>
     ))
@@ -31,13 +33,14 @@ import { fadeIn } from "@/utils/motion";
   .cards {
     display: flex;
     flex-wrap: wrap;
+    gap: 24px;
     justify-content: space-evenly;
     position: relative;
     width: 100%;
 
     @media (max-width: 960px) {
       flex-direction: column;
-      max-width: 600px;
+      max-width: fit-content;
       margin-inline: auto;
       padding: 3rem;
       gap: 2rem;
@@ -46,5 +49,9 @@ import { fadeIn } from "@/utils/motion";
 
   .cards :global(> astro-island:not(:first-of-type) > .card-wrapper) {
     height: 100%;
+  }
+  .cards :global(> astro-island > .card-wrapper) {
+    width: fit-content;
+    flex: 1 1 20rem;
   }
 </style>

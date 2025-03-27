@@ -1,15 +1,15 @@
 ---
-import { Icon } from "astro-icon";
-import Vector1 from "@asset/Vector1.webp";
-import Vector2 from "@asset/Vector2.webp";
-import Portrait from "@asset/Portrait.webp";
-import heartEmoji from "@asset/heartEmoji.webp";
-import humbleEmoji from "@asset/humbleEmoji.webp";
-import Floating from "@components/Floating.astro";
-import Button from "@/components/Button.astro";
-import FloatingItem from "./FloatingItem";
-import type { CSSProperties } from "react";
-import Emoji from "./Emoji";
+import { Icon } from 'astro-icon';
+import Vector1 from '@asset/Vector1.webp';
+import Vector2 from '@asset/Vector2.webp';
+import Portrait from '@asset/Portrait.webp';
+import heartEmoji from '@asset/heartEmoji.webp';
+import humbleEmoji from '@asset/humbleEmoji.webp';
+import Floating from '@components/Floating.astro';
+import Button from '@/components/Button.astro';
+import FloatingItem from './FloatingItem';
+import type { CSSProperties } from 'react';
+import Emoji from './Emoji';
 ---
 
 <section class="intro" id="intro">
@@ -17,14 +17,11 @@ import Emoji from "./Emoji";
     <div class="content__title">
       <span>Hi, I'm</span>
       <span>Thanh Huy Doan</span>
-      <span>
-        Frontend Developer with a solid background in digital marketing and a ❤️
-        for SEO-friendly Web Design</span
-      >
+      <span> Frontend Developer with a solid background in digital marketing and a ❤️ for SEO-friendly Web Design</span>
     </div>
     <Button
       as="a"
-      href="/Thanh-Huy-Doan_Web-Dev_CV.pdf"
+      href="/Doan_Thanh_Huy-Web_Developer.pdf"
       text="Download CV"
       size="sm"
       download
@@ -38,10 +35,7 @@ import Emoji from "./Emoji";
       <a href="https://www.freecodecamp.org/Antonio04" target="_blank">
         <Icon name="fcc" width="48" />
       </a>
-      <a
-        href="https://www.frontendmentor.io/profile/Antonio0402"
-        target="_blank"
-      >
+      <a href="https://www.frontendmentor.io/profile/Antonio0402" target="_blank">
         <Icon name="fem" width="42" />
       </a>
     </div>
@@ -54,34 +48,34 @@ import Emoji from "./Emoji";
     <Emoji client:only="react" className="floating-emoji" />
 
     <FloatingItem
-      whileInView={{ x: "-6%" }}
+      whileInView={{ x: '-6%' }}
       transition={{ duration: 2 }}
       className="floating-div"
-      style={{ "--top": "-4%", "--left": "74%" } as CSSProperties}
+      style={{ '--top': '-4%', '--left': '74%' } as CSSProperties}
       client:load
     >
       <Floating img={heartEmoji} text1="Web" text2="Developer" />
     </FloatingItem>
 
     <FloatingItem
-      whileInView={{ x: "calc(-100% + 2rem)" }}
+      whileInView={{ x: 'calc(-100% + 2rem)' }}
       transition={{ duration: 2 }}
       className="floating-div"
-      style={{ "--left": "9rem", "--top": "18rem" } as CSSProperties}
+      style={{ '--left': '9rem', '--top': '18rem' } as CSSProperties}
       client:load
     >
       <Floating img={humbleEmoji} text1="Digital" text2="Marketer" />
     </FloatingItem>
 
-    <div class="blur" style={{ "--bg": "rgb(238 210 255)" }}></div>
+    <div class="blur" style={{ '--bg': 'rgb(238 210 255)' }}></div>
     <div
       class="blur"
       style={{
-        "--bg": "#C1F5FF",
-        "--top": "17rem",
-        "--left": "-9rem",
-        "--w": "21rem",
-        "--h": "11rem",
+        '--bg': '#C1F5FF',
+        '--top': '17rem',
+        '--left': '-9rem',
+        '--w': '21rem',
+        '--h': '11rem',
       }}
     >
     </div>

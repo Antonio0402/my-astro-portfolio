@@ -1,28 +1,30 @@
 ---
-import Button from "@/components/Button.astro";
-import { Icon } from "astro-icon";
+import Button from '@/components/Button.astro';
+import { Icon } from 'astro-icon';
 type Props = {
   icon: string;
   heading: string;
   detail: string;
   demo: string;
+  desc: string;
   code?: string;
 };
 
-const { icon, heading, detail, demo, code } = Astro.props;
+const { icon, heading, detail, demo, code, desc } = Astro.props;
 ---
 
 <div class="card">
   <Icon name={icon} width="56" height="56" />
   <span>{heading}</span>
   <span>{detail}</span>
+  <p class="description">{desc}</p>
   <div class="button-group">
     <Button
       as="a"
       variant="circle"
       size="xs"
       text="Demo"
-      icons={{ name: "link", side: "left" }}
+      icons={{ name: 'link', side: 'left' }}
       href={demo}
       target="_blank"
     />
@@ -33,7 +35,7 @@ const { icon, heading, detail, demo, code } = Astro.props;
           variant="circle"
           size="xs"
           text="Code"
-          icons={{ name: "code", side: "left" }}
+          icons={{ name: 'code', side: 'left' }}
           href={code}
           target="_blank"
         />
@@ -47,7 +49,7 @@ const { icon, heading, detail, demo, code } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 13rem;
+    /* width: 13rem; */
     height: 24rem;
     gap: 1rem;
     font-size: 1rem;
@@ -89,8 +91,8 @@ const { icon, heading, detail, demo, code } = Astro.props;
   }
 
   .card > span:nth-of-type(2) {
-    font-size: 0.75rem;
-    max-width: 35ch;
+    font-size: 0.85rem;
+    /* max-width: 35ch; */
   }
 
   .card > .button-group {
@@ -99,5 +101,10 @@ const { icon, heading, detail, demo, code } = Astro.props;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+  }
+  .card > .description {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: justify;
   }
 </style>
