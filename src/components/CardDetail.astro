@@ -1,6 +1,7 @@
 ---
 import Button from '@/components/Button.astro';
 import { Icon } from 'astro-icon';
+import { t } from 'i18next';
 type Props = {
   icon: string;
   heading: string;
@@ -11,13 +12,23 @@ type Props = {
 };
 
 const { icon, heading, detail, demo, code, desc } = Astro.props;
+const componentName = 'CardDetail';
 ---
 
 <div class="card">
   <Icon name={icon} width="56" height="56" />
-  <span>{heading}</span>
-  <span>{detail}</span>
-  <p class="description">{desc}</p>
+  <span>{t(`${componentName}.heading`, { heading })}</span>
+  <span>{t(`${componentName}.detail`, { detail })}</span>
+  <p class="description">
+    {
+      t(`${componentName}.description`, {
+        desc,
+        interpolation: {
+          escapeValue: false,
+        },
+      })
+    }
+  </p>
   <div class="button-group">
     <Button
       as="a"

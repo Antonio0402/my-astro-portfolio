@@ -1,6 +1,9 @@
 ---
 import projectsData from "@/data/projectsData";
 import Button from "./Button.astro";
+
+import i18next from "i18next";
+const currentLanguage = i18next.language || "vi";
 ---
 
 <div class="portfolio-swiper">
@@ -43,8 +46,8 @@ import Button from "./Button.astro";
             </div>
           </div>
           <figcaption class="detail">
-            <p class="title">{project.title}</p>
-            <p class="description">{project.desc}</p>
+            <p class="title">{project.title[currentLanguage]}</p>
+            <p class="description">{project.desc[currentLanguage]}</p>
           </figcaption>
           <div class="chips-group">
             {project.techs.map((tech) => (

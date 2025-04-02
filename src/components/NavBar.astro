@@ -1,11 +1,15 @@
 ---
-import Toggle from "./Toggle.astro";
-import navData from "../data/navData";
-import Button from "@/components/Button.astro";
-import NavLink from "./NavLink";
-import MobileNavLink from "./MobileNavLink";
-import BurgerMenu from "./BurgerMenu";
-import { Icon } from "astro-icon";
+import Toggle from './Toggle.astro';
+import navData from '../data/navData';
+import Button from '@/components/Button.astro';
+import NavLink from './NavLink';
+import MobileNavLink from './MobileNavLink';
+import BurgerMenu from './BurgerMenu';
+import { Icon } from 'astro-icon';
+import LangSwitcher from './LangSwitcher.astro';
+import i18next from 'i18next';
+
+const currentLanguage = i18next.language || 'vi';
 ---
 
 <header id="navbar" class="primary-header">
@@ -17,6 +21,7 @@ import { Icon } from "astro-icon";
       </a>
     </div>
     <Toggle />
+    <LangSwitcher />
   </div>
   <nav class="nav-wrapper">
     <ul class="nav-list">
@@ -27,7 +32,7 @@ import { Icon } from "astro-icon";
               client:load
               to={item?.to}
               activeClass={item?.activeClass}
-              text={item?.text}
+              text={item?.text[currentLanguage]}
               isMobile={false}
             />
           </li>
@@ -36,7 +41,7 @@ import { Icon } from "astro-icon";
     </ul>
     <MobileNavLink client:load />
     <NavLink client:load to="contact">
-      <Button as="button" variant="filled" size="sm" text="Contact" />
+      <Button as="button" variant="filled" size="sm" text={currentLanguage === 'en' ? 'Contact' : 'Liên hệ'} />
     </NavLink>
     <BurgerMenu client:load />
   </nav>
@@ -110,7 +115,7 @@ import { Icon } from "astro-icon";
     }
 
     :global(.nav-link::after) {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       bottom: -0.5rem;

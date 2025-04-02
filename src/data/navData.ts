@@ -8,22 +8,34 @@ const navData = [
   {
     activeClass: true,
     to: "intro",
-    text: "Home",
+    text: {
+      en: "Home",
+      vi: "Trang chủ",
+    },
   },
   {
     activeClass: false,
-    to: "profiency",
-    text: "Profiency",
+    to: "proficiency",
+    text: {
+      en: "Experience",
+      vi: "Kinh nghiệm",
+    },
   },
   {
     activeClass: false,
     to: "about",
-    text: "About",
+    text: {
+      en: "About",
+      vi: "Giới thiệu",
+    },
   },
   {
     activeClass: false,
     to: "portfolio",
-    text: "Protfolio",
+    text: {
+      en: "Portfolio",
+      vi: "Dự án",
+    },
   },
 ];
 

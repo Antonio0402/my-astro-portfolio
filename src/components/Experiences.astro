@@ -3,19 +3,16 @@ import Cards from './Cards.astro';
 import CardsWrapper from './CardsWrapper';
 import { staggerContainer } from '@/utils/motion';
 import WordpressBackground from '@asset/wordpress-development.webp';
+import { t } from 'i18next';
+const componentName = 'Experiences';
 ---
 
 <section class="proficiency" id="proficiency">
   <div class="content">
     <div class="content__title">
-      <span>Proof of Experiences</span>
-      <span>Frontend - SEO Optimization</span>
-      <span>
-        This is two of the most important aspects of web development - Frontend and SEO Optimization.
-        <br />
-        Mastering various JavaScript frameworks for advanced web projects and contributing to SEO optimization enhances overall
-        site speed by applying a caching system and implementing best practices for advanced on-page SEO.
-      </span>
+      <span>{t(`${componentName}.introduction.part1`)}</span>
+      <span>{t(`${componentName}.introduction.part2`)}</span>
+      <span>{t(`${componentName}.introduction.part3`, { interpolation: { escapeValue: false } })}</span>
     </div>
   </div>
   <div class="blur" style={{ '--bg': '#ABF1FF94', '--left': '0', '--top': '9rem' }}></div>

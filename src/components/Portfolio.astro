@@ -1,17 +1,16 @@
 ---
-import Grid from "./Grid.astro";
-import Swiper from "./Swiper.astro";
+import Grid from './Grid.astro';
+import Swiper from './Swiper.astro';
+import i18next from 'i18next';
+
+const currentLanguage = i18next.language || 'vi';
 ---
 
 <section class="portfolio" id="portfolio">
   <div class="content">
-    <p class="title">Projects</p>
-    <p class="subtitle">Selected Pratice Projects</p>
-    <div
-      class="blur"
-      style={{ "--bg": "skyblue", "--top": "13rem", "--left": "-18rem" }}
-    >
-    </div>
+    <p class="title">{currentLanguage === 'en' ? 'Projects' : 'Các dự án'}</p>
+    <p class="subtitle">{currentLanguage === 'en' ? 'Selected Practice Projects' : 'Một số dự án cá nhân nổi bật'}</p>
+    <div class="blur" style={{ '--bg': 'skyblue', '--top': '13rem', '--left': '-18rem' }}></div>
   </div>
   <!-- <Swiper /> -->
   <Grid />

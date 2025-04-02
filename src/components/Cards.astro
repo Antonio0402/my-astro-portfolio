@@ -4,6 +4,9 @@ import CardDetail from './CardDetail.astro';
 // import cardData from '@/data/cardData';
 import { wpCardData } from '@/data/cardData';
 import { fadeIn } from '@/utils/motion';
+import i18next from 'i18next';
+
+const currentLanguage = i18next.language || 'vi';
 ---
 
 <div class="cards">
@@ -22,7 +25,7 @@ import { fadeIn } from '@/utils/motion';
           detail={item.detail}
           demo={item.demo}
           code={item?.code}
-          desc={item.desc}
+          desc={item.desc?.[currentLanguage]}
         />
       </CardItem>
     ))

@@ -1,0 +1,51 @@
+{
+  "Intro": {
+    "greeting": {
+      "part1": "Xin chào, tôi là",
+      "part2": "Đoàn Thanh Huy",
+      "part3": " Lập trình Frontend với nền tảng vững chắc về digital marketing và một niềm đam mê với thiết kế web thân thiện cho SEO."
+    }
+  },
+  "Button": {
+    "download": "Tải xuống CV"
+  },
+  "Experiences": {
+    "introduction": {
+      "part1": "Minh chứng về kinh nghiệm",
+      "part2": "Frontend - Tối ưu hóa SEO",
+      "part3": "Đây là hai trong những khía cạnh quan trọng nhất của xây dựng web - Frontend và Tối ưu hóa SEO.\nThành thạo nhiều framework JavaScript cho các dự án xấy dựng web cao cấp cũng như thực hiện vào tối ưu hóa SEO giúp tăng tốc độ tổng thể của website bằng cách tích hợp hệ thống cache và áp dụng các phương pháp SEO on-page cần thiết."
+    }
+  },
+  "CardDetail": {
+    "heading": "{{heading}}",
+    "detail": "{{detail}}",
+    "description": "{{desc}}"
+  },
+  "Skills": {
+    "title": {
+      "part1": "Kỹ năng",
+      "part2": "Công nghệ",
+      "part3": "Tôi thích khám phá và học hỏi các ngôn ngữ lập trình, framework và thư viện mới. Đây là những công nghệ mà tôi thông thạo và thường sử dụng:"
+    }
+  },
+  "Certificates": {
+    "title": {
+      "part1": "Tất cả chứng chỉ",
+      "part2": " hoàn thành khóa học",
+      "part3": " của tôi..."
+    }
+  },
+  "Contact": {
+    "title": {
+      "part1": "Giữ liên lạc nhé",
+      "part2": "Liên hệ với tôi"
+    },
+    "formPlaceholder": {
+      "name": "Tên của bạn",
+      "email": "Địa chỉ email của bạn",
+      "message": "Lời nhắn của bạn",
+      "button": "Gửi",
+      "helper": "Cảm ơn đã liên hệ với tôi! Tôi sẽ phản hồi bạn sớm nhất có thể."
+    }
+  }
+}

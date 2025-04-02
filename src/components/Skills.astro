@@ -1,17 +1,15 @@
 ---
-import techData from "@/data/techData";
+import techData from '@/data/techData';
+import { t } from 'i18next';
+const componentName = 'Skills';
 ---
 
 <div class="skills" id="skills">
   <div class="content">
     <div class="content__title">
-      <span>Skills</span>
-      <span>Technologies</span>
-      <span>
-        I like playing around and learning new programming languages,
-        frameworks, and libraries. These are the technologies that I love
-        working with:
-      </span>
+      <span>{t(`${componentName}.title.part1`)}</span>
+      <span>{t(`${componentName}.title.part2`)}</span>
+      <span>{t(`${componentName}.title.part3`)}</span>
     </div>
   </div>
   <ul class="technologies" role="list">
@@ -19,12 +17,7 @@ import techData from "@/data/techData";
       techData.map((tech) => (
         <li class="icon-list">
           <div class="circle">
-            <img
-              src={tech.img}
-              alt={`${tech.info} icon`}
-              decoding="async"
-              loading="lazy"
-            />
+            <img src={tech.img} alt={`${tech.info} icon`} decoding="async" loading="lazy" />
           </div>
           <span>{tech.info}</span>
         </li>
@@ -57,10 +50,7 @@ import techData from "@/data/techData";
 
   .skills > .technologies {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(8rem, 1fr) minmax(8rem, 1fr)
-    );
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr) minmax(8rem, 1fr));
     justify-items: center;
     align-items: center;
     gap: 1rem;

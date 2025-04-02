@@ -1,0 +1,48 @@
+{
+  "Intro": {
+    "greeting": {
+      "part1": "Hi, I'm",
+      "part2": "Thanh Huy Doan",
+      "part3": " Frontend Developer with a solid background in digital marketing and a ❤️ for SEO-friendly Web Design"
+    }
+  },
+  "Experiences": {
+    "introduction": {
+      "part1": "Proof of Experiences",
+      "part2": "Frontend - SEO Optimization",
+      "part3": "This is two of the most important aspects of web development - Frontend and SEO Optimization.\nMastering various JavaScript frameworks for advanced web projects and contributing to SEO optimization enhances overall site speed by applying a caching system and implementing best practices for advanced on-page SEO."
+    }
+  },
+  "CardDetail": {
+    "heading": "{{heading}}",
+    "detail": "{{detail}}",
+    "description": "{{desc}}"
+  },
+  "Skills": {
+    "title": {
+      "part1": "Skills",
+      "part2": "Technologies",
+      "part3": "I like playing around and learning new programming languages, frameworks, and libraries. These are the technologies that I love working with:"
+    }
+  },
+  "Certificates": {
+    "title": {
+      "part1": "All my Certificates",
+      "part2": " of courses completion",
+      "part3": " from me..."
+    }
+  },
+  "Contact": {
+    "title": {
+      "part1": "Get in Touch",
+      "part2": "Contact me"
+    },
+    "formPlaceholder": {
+      "name": "Your name",
+      "email": "Your Email",
+      "message": "Your message",
+      "button": "Send",
+      "helper": "Thanks for contacting me! I will get back to you as soon as possible."
+    }
+  }
+}

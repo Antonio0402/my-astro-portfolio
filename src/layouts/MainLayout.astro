@@ -1,7 +1,8 @@
 ---
-import Footer from "@/components/Footer.astro";
-import NavBar from "@/components/NavBar.astro";
-
+import Footer from '@/components/Footer.astro';
+import NavBar from '@/components/NavBar.astro';
+import i18next from 'i18next';
+import { HeadHrefLangs } from 'astro-i18next/components';
 interface Props {
   title: string;
 }
@@ -9,8 +10,8 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -19,30 +20,30 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://stijndv.com" />
     <link rel="stylesheet" href="https://stijndv.com/fonts/Eudoxus-Sans.css" />
+    {import.meta.env.PROD && <HeadHrefLangs />}
     <script is:inline>
       /** Represent the toggle theme class with a variable */
-      const DARK_THEME_CLASS = "dark";
+      const DARK_THEME_CLASS = 'dark';
 
       /** Represent the local storage key by a variable */
-      const COLOUR_MODE = "COLOUR_MODE";
+      const COLOUR_MODE = 'COLOUR_MODE';
 
       /** Represent the local storage values by variables */
-      const LIGHT_THEME = "LIGHT";
-      const DARK_THEME = "DARK";
+      const LIGHT_THEME = 'LIGHT';
+      const DARK_THEME = 'DARK';
 
       /** Grab the document root element. In this case <html>  */
       const rootEl = document.documentElement;
 
       const getInitialColourMode = () => {
         /** Get colour mode from local storage **/
-        const previouslySavedColourMode =
-          window.localStorage.getItem(COLOUR_MODE);
+        const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
         if (previouslySavedColourMode) {
           return previouslySavedColourMode;
         }
 
         /** Does the user prefer dark mode, e.g., through an operating system or user agent setting? */
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           return DARK_THEME;
         }
         /** Default to the light theme */
@@ -62,16 +63,12 @@ const { title } = Astro.props;
       /** Set the initial colour mode as soon as the script is executed */
       setInitialColourMode(initialColourMode);
     </script>
-    <script
-      is:inline
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-    ></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-      import { register } from "swiper/element/bundle";
+      import { register } from 'swiper/element/bundle';
       register();
 
-      import emailjs from "@emailjs/browser";
+      import emailjs from '@emailjs/browser';
       (function () {
         // https://dashboard.emailjs.com/admin/account
         emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -88,8 +85,8 @@ const { title } = Astro.props;
 
 <style is:global>
   @font-face {
-    font-family: "Gumela";
-    src: url("./fonts/gumela-regular-webfont.woff2") format("woff2");
+    font-family: 'Gumela';
+    src: url('./fonts/gumela-regular-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -110,7 +107,7 @@ const { title } = Astro.props;
     --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
     --icon: var(--light);
     --ff-primary: Gumela, serif;
-    --ff-secondary: "Eudoxus Sans", sans-serif;
+    --ff-secondary: 'Eudoxus Sans', sans-serif;
   }
   html.dark {
     --clr-background: black;
@@ -169,8 +166,8 @@ const { title } = Astro.props;
 
   /* Remove list styles on ul, ol elements with a list role,
    which suggests default styling will be removed */
-  ul[role="list"],
-  ol[role="list"] {
+  ul[role='list'],
+  ol[role='list'] {
     list-style: none;
   }
 
@@ -207,8 +204,15 @@ const { title } = Astro.props;
   }
 
   code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
   }
 
   /* Avoid text overflows */

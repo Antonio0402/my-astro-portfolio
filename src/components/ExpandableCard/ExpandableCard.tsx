@@ -7,7 +7,7 @@ import { openAtom } from "@/store";
 type Props = PropsWithChildren & {
   title: string;
   subtitle?: string;
-  index: 1 | 2;
+  index: number;
 };
 
 const ExpandableCard = ({ title, subtitle, index, children }: Props) => {

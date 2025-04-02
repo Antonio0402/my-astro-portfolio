@@ -1,6 +1,7 @@
 ---
-import Wave from "@asset/wave.webp";
-import { Icon } from "astro-icon";
+import Wave from '@asset/wave.webp';
+import { Icon } from 'astro-icon';
+const year = new Date().getFullYear();
 ---
 
 <div class="footer">
@@ -18,10 +19,7 @@ import { Icon } from "astro-icon";
         <a href="https://github.com/Antonio0402" target="_blank">
           <Icon name="github" width="42" />
         </a>
-        <a
-          href="https://www.linkedin.com/in/thanh-huy-doan-05528411a/"
-          target="_blank"
-        >
+        <a href="https://www.linkedin.com/in/thanh-huy-doan-05528411a/" target="_blank">
           <Icon name="linkedIn" width="42" />
         </a>
         <a href="https://www.facebook.com/Hutieu0402/" target="_blank">
@@ -35,7 +33,7 @@ import { Icon } from "astro-icon";
     </div>
   </div>
   <small class="copy-right"
-    >All Rights Reserved © 2023
+    >All Rights Reserved © {year}
     <br />Made with ❤️ by Antonio</small
   >
 </div>

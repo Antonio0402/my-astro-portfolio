@@ -1,59 +1,55 @@
 ---
-import Link from "./Button.astro";
-import Contact3D from "@asset/Contact3D.webp";
-import MotionContainer from "./MotionContainer";
-import type load from "astro-icon/lib/utils";
+import Link from './Button.astro';
+import Contact3D from '@asset/Contact3D.webp';
+import MotionContainer from './MotionContainer';
+import { t } from 'i18next';
+const componentName = 'Contact';
 ---
 
 <section class="contact" id="contact">
   <div class="content">
     <div class="content__title">
-      <span>Get in Touch</span>
-      <span>Contact me</span>
+      <span>{t(`${componentName}.title.part1`)}</span>
+      <span>{t(`${componentName}.title.part2`)}</span>
       <a href="mailto:doanthanhhuy0402@gmail.com">doanthanhhuy0402@gmail.com</a>
     </div>
     <MotionContainer
       client:load
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
-      viewport={{ margin: "-40px" }}
+      viewport={{ margin: '-40px' }}
       transition={{ duration: 1 }}
       className="main-circle"
     >
       <img src={Contact3D.src} width={Contact3D.width * 0.6} alt="" />
     </MotionContainer>
-    <div
-      class="blur"
-      style={{ "--bg": "var(--purple)", "--top": "13rem", "--left": "-18rem" }}
-    >
-    </div>
+    <div class="blur" style={{ '--bg': 'var(--purple)', '--top': '13rem', '--left': '-18rem' }}></div>
   </div>
   <div class="form-wrapper">
     <form name="contact-form" method="post" id="contact-form">
-      <input
-        class="text-field"
-        type="text"
-        name="user_name"
-        placeholder="Name"
-      />
+      <input class="text-field" type="text" name="user_name" placeholder={t(`${componentName}.formPlaceholder.name`)} />
       <input
         class="text-field"
         type="email"
         name="user_email"
-        placeholder="Email"
+        placeholder={t(`${componentName}.formPlaceholder.email`)}
       />
-      <textarea class="text-field" name="message" placeholder="Message" rows="6"
+      <textarea class="text-field" name="message" placeholder={t(`${componentName}.formPlaceholder.message`)} rows="6"
       ></textarea>
-      <Link as="button" type="submit" variant="filled" size="sm" text="Send" />
-      <span data-helper="text" class="helper-text"
-        >"Thanks for Contacting me"</span
-      >
+      <Link
+        as="button"
+        type="submit"
+        variant="filled"
+        size="sm"
+        text={t(`${componentName}.formPlaceholder.button`) as string}
+      />
+      <span data-helper="text" class="helper-text">{t(`${componentName}.formPlaceholder.helper`)}</span>
       <div
         class="blur"
         style={{
-          "--bg": "var(--purple)",
-          "--top": "1rem",
-          "--left": "min(100% - var(--w, 22rem), 40%)",
+          '--bg': 'var(--purple)',
+          '--top': '1rem',
+          '--left': 'min(100% - var(--w, 22rem), 40%)',
         }}
       >
       </div>
@@ -103,20 +99,22 @@ import type load from "astro-icon/lib/utils";
     transition: all 0.3s 0.2s ease-in;
 
     &::before {
-      content: "👋";
+      content: '👋';
       position: absolute;
       scale: 2;
       left: 0;
       opacity: 0;
       will-change: transform;
-      transition: transform 0.5s ease-in, opacity 0.3s 0.1s ease-in;
+      transition:
+        transform 0.5s ease-in,
+        opacity 0.3s 0.1s ease-in;
       animation: wave 1000ms infinite alternate ease-in-out backwards;
       animation-play-state: paused;
       transform-origin: 80% 75%;
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       bottom: -0.5rem;
@@ -203,34 +201,41 @@ import type load from "astro-icon/lib/utils";
 </style>
 
 <script>
-  import emailjs from "@emailjs/browser";
+  import emailjs from '@emailjs/browser';
 
-  const helperText = document.querySelector(
-    "span[data-helper='text']"
-  ) as HTMLInputElement | null;
-  helperText.style.visibility = "hidden";
+  const helperText = document.querySelector("span[data-helper='text']") as HTMLInputElement | null;
+  if (helperText) helperText.style.visibility = 'hidden';
 
-  const contactForm = document.forms["contact-form"] as HTMLFormElement | null;
+  const contactForm = document.forms['contact-form'] as HTMLFormElement | null;
   if (contactForm) {
-    contactForm.addEventListener("submit", sendEmail);
+    contactForm.addEventListener('submit', sendEmail);
   }
 
-  function sendEmail(event: SubmitEvent) {
+  async function sendEmail(event: SubmitEvent) {
     event.preventDefault();
 
-    if (event.currentTarget) {
-      emailjs
-        .sendForm(
-          import.meta.env.VITE_EMAILJS_CONTACT_SERVICE,
-          import.meta.env.VITE_EMAILJS_CONTACT_FORM,
-          contactForm,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
-        .then((result) => {
-          helperText.style.visibility = "visibility";
-          alert(`Message successfully sent! ${result.text}`);
-          window.location.reload();
-        });
+    if (!contactForm) return;
+
+    try {
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_CONTACT_SERVICE,
+        import.meta.env.VITE_EMAILJS_CONTACT_FORM,
+        contactForm,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      if (helperText) {
+        helperText.style.visibility = 'visible';
+        helperText.textContent = 'Message successfully sent!';
+      }
+
+      contactForm.reset();
+    } catch (error) {
+      // console.log('Failed to send email:', error);
+      if (helperText) {
+        helperText.style.visibility = 'visible';
+        helperText.textContent = 'Failed to send message. Please try again later.';
+      }
     }
   }
 </script>

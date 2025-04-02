@@ -10,19 +10,23 @@ import Button from '@/components/Button.astro';
 import FloatingItem from './FloatingItem';
 import type { CSSProperties } from 'react';
 import Emoji from './Emoji';
+import i18next, { t } from 'i18next';
+const componentName = 'Intro';
+
+const currentLanguage = i18next.language || 'en';
 ---
 
 <section class="intro" id="intro">
   <div class="content">
     <div class="content__title">
-      <span>Hi, I'm</span>
-      <span>Thanh Huy Doan</span>
-      <span> Frontend Developer with a solid background in digital marketing and a ❤️ for SEO-friendly Web Design</span>
+      <span>{t(`${componentName}.greeting.part1`)}</span>
+      <strong>{t(`${componentName}.greeting.part2`)}</strong>
+      <span>{t(`${componentName}.greeting.part3`)}</span>
     </div>
     <Button
       as="a"
       href="/Doan_Thanh_Huy-Web_Developer.pdf"
-      text="Download CV"
+      text={currentLanguage === 'en' ? 'Download CV' : 'Tải Xuống CV'}
       size="sm"
       download
       class="download"

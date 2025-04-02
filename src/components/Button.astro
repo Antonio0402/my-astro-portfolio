@@ -1,49 +1,27 @@
 ---
-import { Icon } from "astro-icon";
-import type { HTMLTag, Polymorphic } from "astro/types";
-import { SIZES } from "@/data/constant";
+import { Icon } from 'astro-icon';
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { SIZES } from '@/data/constant';
+import { t } from 'i18next';
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
   text: string;
   href?: string;
   size: keyof typeof SIZES;
   icons?: {
     name: string;
-    side: "left" | "right";
+    side: 'left' | 'right';
   };
-  variant?: "filled" | "white" | "circle";
+  variant?: 'filled' | 'white' | 'circle';
 };
 
-const {
-  text,
-  href,
-  size,
-  icons,
-  variant = "filled",
-  class: className,
-  as: Tag,
-  ...attr
-} = Astro.props;
+const { text, href, size, icons, variant = 'filled', class: className, as: Tag, ...attr } = Astro.props;
 const styles = SIZES[size];
 ---
 
-<Tag
-  href={href}
-  class:list={["link", className]}
-  data-variant={variant}
-  {...attr}
-  style={styles}
->
-  {
-    icons && icons.side === "left" && (
-      <Icon name={icons.name} height="24" width="24" />
-    )
-  }
+<Tag href={href} class:list={['link', className]} data-variant={variant} {...attr} style={styles}>
+  {icons && icons.side === 'left' && <Icon name={icons.name} height="24" width="24" />}
   <span>{text}</span>
-  {
-    icons && icons.side === "right" && (
-      <Icon name={icons.name} height="24" width="24" />
-    )
-  }
+  {icons && icons.side === 'right' && <Icon name={icons.name} height="24" width="24" />}
 </Tag>
 
 <style>
@@ -73,7 +51,7 @@ const styles = SIZES[size];
     }
   }
 
-  .link[data-variant="filled"] {
+  .link[data-variant='filled'] {
     background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
     box-shadow: 0px 20px 24px 3px rgba(251, 161, 40, 0.42);
     color: white;
@@ -86,7 +64,7 @@ const styles = SIZES[size];
     }
   }
 
-  .link[data-variant="white"] {
+  .link[data-variant='white'] {
     --fs: 1rem;
     padding: 0.625rem;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
@@ -100,7 +78,7 @@ const styles = SIZES[size];
     }
   }
 
-  .link[data-variant="circle"] {
+  .link[data-variant='circle'] {
     --rounded: 50%;
     --bg: white;
     --fg: #5290fd;
