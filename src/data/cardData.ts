@@ -31,7 +31,7 @@ export const wpCardData = [
     icon: "classic-wordpress",
     heading: "Classic Theme Development",
     detail: "HTML, CSS, PHP, WordPress, MySQL, JavaScript, jQuery",
-    demo: "https://dev-hostel-33.pantheonsite.io/",
+    demo: "https://live-hostel-33.pantheonsite.io/",
     code: "https://github.com/Antonio0402/hostel-33",
     desc: {
       en: "I have over a year of experience in WordPress development, during which I have successfully developed a variety of features, modifying plugins as well as transformed the UI/UX for Kamereo\'s blog site to be increase level of SEO compatibility. This project showcases my skills and creativity in Wordpress Theme Development as creating a hostel theme for supporting my family\'s business.",
@@ -43,6 +43,7 @@ export const wpCardData = [
     heading: "Gutenberg Block Development",
     detail: "HTML, CSS, PHP, WordPress, MySQL, JavaScript, React",
     demo: "https://dev-hostel-33.pantheonsite.io/",
+    code: "https://github.com/Antonio0402/hostel-33/tree/huydoan/hostel-33-block-theme/hostel-33-block-theme-child",
     desc: {
       en: "This project showcases my adaptive skills in continuously learning by migrating to a custom block for the WordPress Gutenberg editor by using React and wordpress/data package to transform the preceding Classic theme into a more modern and user-friendly design.",
       vi: "Đây là dự án thể hiện kỹ năng thích ứng và học hỏi cái mới của tôi trong Wordpress thông qua việc cải tiến liên tục Classic theme sang Block Editor Gutenberg theme bằng React và thư viện wordpress/data theo thiết kế hiện đại và thân thiện với người dùng hơn.",

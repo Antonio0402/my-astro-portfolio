@@ -1,9 +1,9 @@
-import React from "react";
-import type { NavData } from "../data/navData";
-import type { ReactNode } from "react";
-import { Link } from "react-scroll";
-import { useStore } from "@nanostores/react";
-import { toggleAtom } from "@/store";
+import React from 'react';
+import type { NavData } from '../data/navData';
+import type { ReactNode } from 'react';
+import { Link } from 'react-scroll';
+import { useStore } from '@nanostores/react';
+import { toggleAtom } from '@/store';
 
 const NavLink = ({
   activeClass,
@@ -15,7 +15,7 @@ const NavLink = ({
   const toggle = useStore(toggleAtom);
   return (
     <Link
-      activeClass={activeClass ? "active" : ""}
+      activeClass={activeClass ? 'active' : ''}
       to={to}
       spy={true}
       smooth={true}
