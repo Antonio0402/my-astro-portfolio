@@ -30,15 +30,19 @@ const componentName = 'CardDetail';
     }
   </p>
   <div class="button-group">
-    <Button
-      as="a"
-      variant="circle"
-      size="xs"
-      text="Demo"
-      icons={{ name: 'link', side: 'left' }}
-      href={demo}
-      target="_blank"
-    />
+    {
+      demo && (
+        <Button
+          as="a"
+          variant="circle"
+          size="xs"
+          text="Demo"
+          icons={{ name: 'link', side: 'left' }}
+          href={demo}
+          target="_blank"
+        />
+      )
+    }
     {
       code && (
         <Button
@@ -61,7 +65,7 @@ const componentName = 'CardDetail';
     flex-direction: column;
     align-items: center;
     /* width: 13rem; */
-    height: 24rem;
+    height: 30rem;
     gap: 1rem;
     font-size: 1rem;
     text-align: center;

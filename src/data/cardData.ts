@@ -35,7 +35,7 @@ export const wpCardData = [
     code: "https://github.com/Antonio0402/hostel-33",
     desc: {
       en: "I have over a year of experience in WordPress development, during which I have successfully developed a variety of features, modifying plugins as well as transformed the UI/UX for Kamereo\'s blog site to be increase level of SEO compatibility. This project showcases my skills and creativity in Wordpress Theme Development as creating a hostel theme for supporting my family\'s business.",
-      vi: "Với hơn 1 năm lập trình WordPress tại Kamereo, tôi đã phát triển nhiều tính năng cũng như tinh chỉnh plugins và cải tiến UI/UX nhằm để tăng tốc độ truy cập và cấu trúc trang blog phù hợp với nhất cho việc SEO. Dự án bên sau đây thể hiện kỹ năng và sự am hiểu của tôi về xây dựng theme Wordpress ứng dụng thông qua việc hỗ trợ công việc kinh của gia đình.",
+      vi: "Với hơn 1 năm lập trình WordPress tại Kamereo, tôi đã phát triển nhiều tính năng cũng như tinh chỉnh plugins và cải tiến UI/UX nhằm giúp tăng tốc độ truy cập và cấu trúc trang blog phù hợp nhất cho SEO. Dự án sau đây thể hiện kỹ năng và sự am hiểu của tôi về việc xây dựng theme Wordpress, ứng dụng trong giao diện website việc hỗ trợ công việc kinh của gia đình.",
     },
   },
   {
@@ -46,8 +46,18 @@ export const wpCardData = [
     code: "https://github.com/Antonio0402/hostel-33/tree/huydoan/hostel-33-block-theme/hostel-33-block-theme-child",
     desc: {
       en: "This project showcases my adaptive skills in continuously learning by migrating to a custom block for the WordPress Gutenberg editor by using React and wordpress/data package to transform the preceding Classic theme into a more modern and user-friendly design.",
-      vi: "Đây là dự án thể hiện kỹ năng thích ứng và học hỏi cái mới của tôi trong Wordpress thông qua việc cải tiến liên tục Classic theme sang Block Editor Gutenberg theme bằng React và thư viện wordpress/data theo thiết kế hiện đại và thân thiện với người dùng hơn.",
+      vi: "Đây là dự án thể hiện kỹ năng thích ứng và học hỏi công nghệ mới của tôi trong Wordpress thông qua việc cải tiến Classic theme sang Block Editor Gutenberg theme bằng React và thư viện wordpress/data theo thiết kế hiện đại và thân thiện với người dùng hơn.",
     },
+  },
+  {
+    icon: "wp-plugin",
+    heading: "WordPress Plugin Development",
+    detail: "HTML, CSS, PHP, WordPress, MySQL, JavaScript, jQuery",
+    code: "https://github.com/Antonio0402/filter-job-plugin",
+    desc: {
+      en: "This project showcases my skills in WordPress plugin development, where I created a custom plugin that allows users to filter job listings based on various criteria. This plugin was inspired by my real-world experience on building career pages of the company for supporting the user experience on job listing websites, making it easier for users to find suitable job opportunities.",
+      vi: "Dự án này thể hiện kỹ năng lập trình plugin WordPress của tôi, nơi tôi đã tạo ra một plugin tùy chỉnh cho phép người dùng lọc danh sách việc làm theo nhiều tiêu chí khác nhau. Plugin này được lấy cảm hứng từ kinh nghiệm thực tế của tôi trong việc xây dựng trang tuyển dụng cho công ty nhằm hỗ trợ trải nghiệm người dùng trên các trang web tuyển dụng, giúp người dùng dễ dàng tìm thấy cơ hội việc làm phù hợp.",
+    }
   }
 ]
 
