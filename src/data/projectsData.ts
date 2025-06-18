@@ -6,6 +6,7 @@ import movieOn from "../asset/movieOn-figma.webp";
 import hostel from "../asset/hostel-figma.webp";
 import blog from "../asset/pern-stack-blog.webp";
 import portfolio from "../asset/portfolio.webp";
+import weddingWebsite from "../asset/wedding-website.webp";
 
 const projectsData = [
   {
@@ -117,6 +118,19 @@ const projectsData = [
     link: "",
     code: "https://github.com/Antonio0402/my-astro-portfolio"
   },
+  {
+    img: weddingWebsite,
+    title: {
+      en: "Online Wedding Invitation",
+      vi: "Thiệp cưới điện tử",
+    },
+    desc: {
+      en: "A wedding invitation website with lively effects and lightbox popup to view photos on Webflow platform",
+      vi: "Thiệp cưới điện tử với các hiệu ứng sinh động và lightbox popup để xem ảnh trên nền tảng Webflow",
+    },
+    techs: ["HTML", "CSS", "Webflow"],
+    link: "https://huy-thu-wedding.webflow.io/",
+  }
 ]
 
 export default projectsData;

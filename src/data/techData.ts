@@ -96,6 +96,10 @@ const techData = [
     info: "WordPress",
   },
   {
+    img: "https://skillicons.dev/icons?i=webflow",
+    info: "Webflow",
+  },
+  {
     img: "https://skillicons.dev/icons?i=php",
     info: "PHP",
   },
